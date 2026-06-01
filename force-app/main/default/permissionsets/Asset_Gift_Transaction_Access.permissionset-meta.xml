@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Access to maintain asset records linked to Gift Transactions.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset__c.Gift_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Asset Gift Transaction Access</label>
+</PermissionSet>

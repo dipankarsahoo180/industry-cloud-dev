@@ -49,6 +49,9 @@ const GIFT_ENTRIES_QUERY = gql`
                                     value
                                 }
                             }
+                            GiftTransactionId {
+                                value
+                            }
                             GiftEntryAssets__r(first: 50) @optional {
                                 edges {
                                     node {
@@ -126,6 +129,9 @@ const GIFT_ENTRY_BY_TRANSACTION_QUERY = gql`
                                 Name {
                                     value
                                 }
+                            }
+                            GiftTransactionId {
+                                value
                             }
                             GiftEntryAssets__r(first: 50) @optional {
                                 edges {
@@ -411,6 +417,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
             return {
                 id: node.Id,
+                giftTransactionId: fieldValue(node.GiftTransactionId),
                 name: fieldValue(node.Name) || node.Id,
                 donor: fieldValue(node.Donor?.Name),
                 giftReceivedDate: displayOrValue(node.GiftReceivedDate),
@@ -568,7 +575,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
         this.savingAssetId = assetId;
 
         try {
-            const input = this.buildAssetInput(entryId, asset);
+            const input = this.buildAssetInput(entry, asset);
             const result = await executeMutation({
                 query: asset.isNew ? CREATE_ASSET_MUTATION : UPDATE_ASSET_MUTATION,
                 variables: { input },
@@ -612,7 +619,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
         for (const { entry, asset } of dirtyAssets) {
             try {
-                const input = this.buildAssetInput(entry.id, asset);
+                const input = this.buildAssetInput(entry, asset);
                 const result = await executeMutation({
                     query: asset.isNew ? CREATE_ASSET_MUTATION : UPDATE_ASSET_MUTATION,
                     variables: { input },
@@ -711,8 +718,10 @@ export default class GiftEntryPostProcessing extends LightningElement {
         );
     }
 
-    buildAssetInput(entryId, asset) {
+    buildAssetInput(entry, asset) {
         const fields = {
+            Gift_Entry__c: entry.id,
+            Gift_Transaction__c: entry.giftTransactionId,
             Appraised_By__c: asset.appraisedById || null,
             Appraised_Value__c: normalizeNumber(asset.appraisedValue),
             Appraisal_Date__c: asset.appraisalDate || null,
@@ -721,10 +730,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
         if (asset.isNew) {
             return {
-                Asset__c: {
-                    Gift_Entry__c: entryId,
-                    ...fields
-                }
+                Asset__c: fields
             };
         }
 
