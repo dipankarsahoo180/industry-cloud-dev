@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sf org *)",
+      "Bash(sf project *)",
+      "Bash(sf data *)",
+      "Bash(sf apex *)",
+      "Bash(sf deploy *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('Status:', d.get\\('result',{}\\).get\\('status'\\)\\); [print\\('Error:', e.get\\('problem'\\), 'in', e.get\\('fileName'\\)\\) for e in d.get\\('result',{}\\).get\\('details',{}\\).get\\('componentFailures',[]\\)]\")",
+      "Bash(cat > *)",
+      "WebFetch(domain:help.salesforce.com)",
+      "Bash(curl -s \"https://developer.salesforce.com/docs/atlas.en-us.ec_fundraising.meta/ec_fundraising/ec_fundraising_gift_entry_grid_customization.htm\")",
+      "Bash(python3 -c ' *)",
+      "WebFetch(domain:developer.salesforce.com)",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/sobjects/GiftEntryGridTemplate/describe)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:trailhead.salesforce.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+SubscriberPackageId,+SubscriberPackageVersion.Name,+SubscriberPackageVersion.MajorVersion,+SubscriberPackageVersion.MinorVersion+FROM+InstalledSubscriberPackage+ORDER+BY+SystemModstamp+DESC+LIMIT+50)",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+SubscriberPackageId,+SubscriberPackageVersion.Name,+SubscriberPackageVersion.MajorVersion,+SubscriberPackageVersion.MinorVersion+FROM+InstalledSubscriberPackage+LIMIT+50)",
+      "WebFetch(domain:salesforce.stackexchange.com)",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' 'https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+Id,+DeveloperName,+MasterLabel,+Type,+SobjectType+FROM+FlexiPage+WHERE+DeveloperName+LIKE+'\\\\''%25Gift%25'\\\\''+OR+DeveloperName+LIKE+'\\\\''%25GiftBatch%25'\\\\''+OR+DeveloperName+LIKE+'\\\\''%25GiftEntry%25'\\\\''')",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' 'https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+Id,+DeveloperName,+MasterLabel,+Type+FROM+FlexiPage+WHERE+DeveloperName+LIKE+'\\\\''%25GiftBatch%25'\\\\''')",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' 'https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+Id,+DeveloperName,+MasterLabel,+NamespacePrefix+FROM+FlexiPage+WHERE+NamespacePrefix='\\\\''runtime_industries_frops'\\\\''')",
+      "Bash(curl -s -H 'Authorization: Bearer 00DHu00000yv8cx!ARoAQDqj4M6G2PAj9eg8u8uM1VTsQ5SWRK2FXg9cs7qTPFk1v1u89fINsONlQ70D67VFOQJW6hX3Ff3pGn_WA4nyliRYwZyW' https://storm-5494e4adb65af8.my.salesforce.com/services/data/v66.0/tooling/query?q=SELECT+Id,+DeveloperName,+MasterLabel,+NamespacePrefix+FROM+FlexiPage+LIMIT+5)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}
