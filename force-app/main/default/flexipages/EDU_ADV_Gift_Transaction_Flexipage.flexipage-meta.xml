@@ -1070,6 +1070,13 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab10</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.PaymentMethod}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Asset</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -1084,6 +1091,13 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab_stocks</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.PaymentMethod}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Stock</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

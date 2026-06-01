@@ -6,7 +6,7 @@ import {
     getFocusedTabInfo
 } from 'lightning/platformWorkspaceApi';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { executeMutation, gql, graphql } from 'lightning/graphql';
+import { gql, graphql } from 'lightning/graphql';
 
 const GIFT_ENTRIES_QUERY = gql`
     query GiftEntryPostProcessing($recordId: ID!) {
@@ -306,46 +306,6 @@ const GIFT_ENTRY_BY_TRANSACTION_QUERY = gql`
     }
 `;
 
-const CREATE_ASSET_MUTATION = gql`
-    mutation CreateGiftEntryAsset($input: Asset__cCreateInput!) {
-        uiapi {
-            Asset__cCreate(input: $input) {
-                Record {
-                    Id
-                    Name {
-                        value
-                    }
-                }
-            }
-        }
-    }
-`;
-
-const UPDATE_ASSET_MUTATION = gql`
-    mutation UpdateGiftEntryAsset($input: Asset__cUpdateInput!) {
-        uiapi {
-            Asset__cUpdate(input: $input) {
-                Record {
-                    Id
-                    Name {
-                        value
-                    }
-                }
-            }
-        }
-    }
-`;
-
-const ASSET_TYPE_OPTIONS = [
-    { label: 'Property', value: 'Property' },
-    { label: 'Art', value: 'Art' },
-    { label: 'Vehicle', value: 'Vehicle' },
-    { label: 'Collectible', value: 'Collectible' },
-    { label: 'Other', value: 'Other' }
-];
-
-const SAVED_VALUE_PIN_DURATION_MS = 30000;
-
 export default class GiftEntryPostProcessing extends LightningElement {
     _recordId;
     _giftTransactionId;
@@ -354,10 +314,10 @@ export default class GiftEntryPostProcessing extends LightningElement {
     errors;
     isLoading = true;
     missingRecordId = false;
-    savingAssetId;
+    isSavingAll = false;
     wiredQueryResult;
     missingRecordIdTimeout;
-    savedAssetPins = new Map();
+    assetDirtyCounts = {};
     stockDirtyCounts = {};
 
     @api
@@ -450,16 +410,6 @@ export default class GiftEntryPostProcessing extends LightningElement {
         return this.isSingleGiftMode ? 'Gift Entry Post Processing' : 'Gift Entry Post Processing';
     }
 
-    get heading() {
-        return this.isSingleGiftMode ? 'Post-processing details for gift' : 'Post-processing gift entries';
-    }
-
-    get description() {
-        return this.isSingleGiftMode
-            ? 'Add or update asset or stock details for this Gift Entry.'
-            : 'Asset and Stock gifts use Status = Success.';
-    }
-
     get missingContextMessage() {
         return this.isSingleGiftMode
             ? 'Gift Transaction id was not available from the post-processing modal.'
@@ -472,20 +422,16 @@ export default class GiftEntryPostProcessing extends LightningElement {
             : 'No eligible Asset or Stock Gift Entries were found for this batch.';
     }
 
-    get assetTypeOptions() {
-        return ASSET_TYPE_OPTIONS;
-    }
-
     get hasEntries() {
         return this.entries.length > 0;
     }
 
     get isSaving() {
-        return !!this.savingAssetId;
+        return this.isSavingAll;
     }
 
     get dirtyAssetCount() {
-        return this.getDirtyAssets().length;
+        return Object.values(this.assetDirtyCounts).reduce((total, count) => total + count, 0);
     }
 
     get dirtyStockCount() {
@@ -494,10 +440,6 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     get dirtyRecordCount() {
         return this.dirtyAssetCount + this.dirtyStockCount;
-    }
-
-    get hasDirtyAssets() {
-        return this.dirtyAssetCount > 0;
     }
 
     get hasDirtyRecords() {
@@ -537,7 +479,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
         const { data, errors } = result;
 
         if (data) {
-            this.entries = this.mergeDirtyAssets(this.mapGiftEntries(data));
+            this.entries = this.mapGiftEntries(data);
             this.errors = undefined;
             this.isLoading = false;
         } else if (errors) {
@@ -641,205 +583,35 @@ export default class GiftEntryPostProcessing extends LightningElement {
         };
     }
 
-    mergeDirtyAssets(freshEntries) {
-        const dirtyByEntryId = new Map(
-            this.entries.map((entry) => [entry.id, entry.assets.filter((asset) => asset.isDirty)])
-        );
-        const pinnedByEntryId = this.getActivePinsByEntryId();
-
-        return freshEntries.map((entry) => {
-            const dirtyAssets = dirtyByEntryId.get(entry.id) || [];
-            const pinnedAssets = pinnedByEntryId.get(entry.id) || [];
-
-            if (!dirtyAssets.length && !pinnedAssets.length) {
-                return entry;
-            }
-
-            const freshAssetsById = new Map(entry.assets.map((asset) => [asset.id, asset]));
-            const mergedAssets = entry.assets.map((asset) => {
-                const dirtyAsset = dirtyAssets.find((item) => item.id === asset.id);
-                const pinnedAsset = pinnedAssets.find((item) => item.id === asset.id);
-                return dirtyAsset || pinnedAsset || asset;
-            });
-
-            [...dirtyAssets, ...pinnedAssets]
-                .filter((asset) => !freshAssetsById.has(asset.id))
-                .forEach((asset) => mergedAssets.push(asset));
-
-            return {
-                ...entry,
-                assets: mergedAssets
-            };
-        });
-    }
-
-    getActivePinsByEntryId() {
-        const now = Date.now();
-        const activePinsByEntryId = new Map();
-
-        this.savedAssetPins.forEach((pin, originalAssetId) => {
-            if (pin.expiresAt <= now) {
-                this.savedAssetPins.delete(originalAssetId);
-                return;
-            }
-
-            if (!activePinsByEntryId.has(pin.entryId)) {
-                activePinsByEntryId.set(pin.entryId, []);
-            }
-
-            activePinsByEntryId.get(pin.entryId).push(pin.asset);
-        });
-
-        return activePinsByEntryId;
-    }
-
-    handleAddAsset(event) {
-        const entryId = event.currentTarget.dataset.entryId;
-        const tempId = `new-${Date.now()}`;
-
-        this.entries = this.entries.map((entry) => {
-            if (entry.id !== entryId) {
-                return entry;
-            }
-
-            return {
-                ...entry,
-                assets: [
-                    ...entry.assets,
-                    {
-                        id: tempId,
-                        displayName: 'New Asset',
-                        appraisedById: null,
-                        appraisedByName: '',
-                        appraisedValue: null,
-                        appraisedValueDisplay: '',
-                        appraisalDate: null,
-                        appraisalDateDisplay: '',
-                        assetType: '',
-                        assetTypeDisplay: '',
-                        isNew: true,
-                        isDirty: true
-                    }
-                ]
-            };
-        });
-    }
-
-    handleAssetChange(event) {
-        const { entryId, assetId, field } = event.currentTarget.dataset;
-        const value = Object.prototype.hasOwnProperty.call(event.detail, 'recordId')
-            ? event.detail.recordId
-            : event.detail.value;
-
-        this.entries = this.entries.map((entry) => {
-            if (entry.id !== entryId) {
-                return entry;
-            }
-
-            return {
-                ...entry,
-                assets: entry.assets.map((asset) => {
-                    if (asset.id !== assetId) {
-                        return asset;
-                    }
-
-                    return {
-                        ...asset,
-                        [field]: value,
-                        isDirty: true
-                    };
-                })
-            };
-        });
-    }
-
-    async handleSaveAsset(event) {
-        const { entryId, assetId } = event.currentTarget.dataset;
-        const entry = this.entries.find((item) => item.id === entryId);
-        const asset = entry?.assets.find((item) => item.id === assetId);
-
-        if (!entry || !asset) {
-            return;
-        }
-
-        if (!this.validateAssetInputs(assetId)) {
-            this.showToast('Review asset details', 'Fix the highlighted fields before saving.', 'error');
-            return;
-        }
-
-        this.savingAssetId = assetId;
-
-        try {
-            const input = this.buildAssetInput(entry, asset);
-            const result = await executeMutation({
-                query: asset.isNew ? CREATE_ASSET_MUTATION : UPDATE_ASSET_MUTATION,
-                variables: { input },
-                operationName: asset.isNew ? 'CreateGiftEntryAsset' : 'UpdateGiftEntryAsset'
-            });
-
-            if (result.errors?.length) {
-                throw new Error(result.errors.map((error) => error.message).join(', '));
-            }
-
-            this.markAssetSaved(entryId, assetId, asset, getSavedRecord(result, asset.isNew));
-            this.showToast('Asset saved', `${entry.name} asset details were saved.`, 'success');
-        } catch (error) {
-            this.showToast('Unable to save asset', normalizeError(error), 'error');
-        } finally {
-            this.savingAssetId = null;
-        }
-    }
-
     async handleSaveAll() {
-        const dirtyAssets = this.getDirtyAssets();
+        const assetEditors = [...this.template.querySelectorAll('c-gift-entry-asset-post-processing')];
         const stockEditors = [...this.template.querySelectorAll('c-gift-entry-stock-post-processing')];
 
-        if (!dirtyAssets.length && !this.dirtyStockCount) {
+        if (!this.dirtyRecordCount) {
             this.showToast('Nothing to save', 'There are no unsaved post-processing changes.', 'info');
             return;
         }
 
-        const allValid = dirtyAssets.reduce(
-            (isValid, { asset }) => this.validateAssetInputs(asset.id) && isValid,
-            true
-        );
-
-        if (!allValid) {
-            this.showToast('Review asset details', 'Fix the highlighted fields before saving.', 'error');
-            return;
-        }
-
-        this.savingAssetId = 'all';
         const failures = [];
         let savedCount = 0;
 
-        for (const { entry, asset } of dirtyAssets) {
-            try {
-                const input = this.buildAssetInput(entry, asset);
-                const result = await executeMutation({
-                    query: asset.isNew ? CREATE_ASSET_MUTATION : UPDATE_ASSET_MUTATION,
-                    variables: { input },
-                    operationName: asset.isNew ? 'CreateGiftEntryAsset' : 'UpdateGiftEntryAsset'
-                });
+        this.isSavingAll = true;
 
-                if (result.errors?.length) {
-                    throw new Error(result.errors.map((error) => error.message).join(', '));
-                }
-
-                this.markAssetSaved(entry.id, asset.id, asset, getSavedRecord(result, asset.isNew));
-                savedCount += 1;
-            } catch (error) {
-                failures.push(`${entry.name}: ${normalizeError(error)}`);
+        try {
+            for (const editor of assetEditors) {
+                const result = await editor.saveAll();
+                savedCount += result.savedCount;
+                failures.push(...result.failures.map((failure) => `Asset: ${failure}`));
             }
-        }
 
-        for (const editor of stockEditors) {
-            const result = await editor.saveAll();
-            savedCount += result.savedCount;
-            failures.push(...result.failures.map((failure) => `Stock: ${failure}`));
+            for (const editor of stockEditors) {
+                const result = await editor.saveAll();
+                savedCount += result.savedCount;
+                failures.push(...result.failures.map((failure) => `Stock: ${failure}`));
+            }
+        } finally {
+            this.isSavingAll = false;
         }
-
-        this.savingAssetId = null;
 
         if (failures.length) {
             this.showToast(
@@ -851,6 +623,23 @@ export default class GiftEntryPostProcessing extends LightningElement {
         }
 
         this.showToast('Records saved', `${savedCount} post-processing records were saved.`, 'success');
+    }
+
+    handleAssetDirtyCountChange(event) {
+        const { entryId, count } = event.detail;
+
+        this.assetDirtyCounts = {
+            ...this.assetDirtyCounts,
+            [entryId]: count
+        };
+    }
+
+    handleAssetSaved(event) {
+        this.showToast('Asset saved', `${event.detail.savedCount} asset record was saved.`, 'success');
+    }
+
+    handleAssetError(event) {
+        this.showToast('Unable to save asset', event.detail.message, 'error');
     }
 
     handleStockDirtyCountChange(event) {
@@ -870,95 +659,6 @@ export default class GiftEntryPostProcessing extends LightningElement {
         this.showToast('Unable to save stock', event.detail.message, 'error');
     }
 
-    getDirtyAssets() {
-        return this.entries.flatMap((entry) =>
-            entry.assets
-                .filter((asset) => asset.isDirty)
-                .map((asset) => ({
-                    entry,
-                    asset
-                }))
-        );
-    }
-
-    markAssetSaved(entryId, assetId, submittedAsset, savedRecord) {
-        const savedAsset = this.buildSavedAsset(submittedAsset, savedRecord);
-
-        this.savedAssetPins.set(assetId, {
-            asset: savedAsset,
-            entryId,
-            expiresAt: Date.now() + SAVED_VALUE_PIN_DURATION_MS
-        });
-
-        this.entries = this.entries.map((entry) => {
-            if (entry.id !== entryId) {
-                return entry;
-            }
-
-            return {
-                ...entry,
-                assets: entry.assets.map((asset) => {
-                    if (asset.id !== assetId) {
-                        return asset;
-                    }
-
-                    return savedAsset;
-                })
-            };
-        });
-    }
-
-    buildSavedAsset(asset, savedRecord) {
-        return {
-            ...asset,
-            id: savedRecord?.Id || asset.id,
-            displayName: fieldValue(savedRecord?.Name) || asset.displayName,
-            appraisedValue: asset.appraisedValue,
-            appraisedValueDisplay: formatSavedValue(asset.appraisedValue),
-            appraisalDate: asset.appraisalDate,
-            appraisalDateDisplay: asset.appraisalDate,
-            assetType: asset.assetType,
-            assetTypeDisplay: asset.assetType,
-            isNew: false,
-            isDirty: false
-        };
-    }
-
-    validateAssetInputs(assetId) {
-        return [...this.template.querySelectorAll(`[data-asset-id="${assetId}"]`)].reduce(
-            (isValid, input) => {
-                if (typeof input.reportValidity !== 'function') {
-                    return isValid;
-                }
-
-                return input.reportValidity() && isValid;
-            },
-            true
-        );
-    }
-
-    buildAssetInput(entry, asset) {
-        const fields = {
-            Gift_Entry__c: entry.id,
-            Gift_Transaction__c: entry.giftTransactionId,
-            Appraised_By__c: asset.appraisedById || null,
-            Appraised_Value__c: normalizeNumber(asset.appraisedValue),
-            Appraisal_Date__c: asset.appraisalDate || null,
-            Asset_Type__c: asset.assetType || null
-        };
-
-        if (asset.isNew) {
-            return {
-                Asset__c: fields
-            };
-        }
-
-        return {
-            Id: asset.id,
-            Asset__c: fields
-        };
-    }
-
     async refreshEntries() {
         if (this.wiredQueryResult?.refresh) {
             await this.wiredQueryResult.refresh();
@@ -976,7 +676,6 @@ export default class GiftEntryPostProcessing extends LightningElement {
             return;
         }
 
-        this.savedAssetPins.clear();
         this.isLoading = true;
         this.refreshEntries().finally(() => {
             this.isLoading = false;
@@ -1025,14 +724,6 @@ function displayOrValue(field) {
     return field?.displayValue || field?.value || '';
 }
 
-function normalizeNumber(value) {
-    if (value === '' || value === null || value === undefined) {
-        return null;
-    }
-
-    return Number(value);
-}
-
 function normalizeError(error) {
     if (Array.isArray(error?.body)) {
         return error.body.map((item) => item.message).join(', ');
@@ -1051,14 +742,4 @@ function normalizeErrors(errors) {
     }
 
     return [normalizeError(errors)];
-}
-
-function formatSavedValue(value) {
-    return value === null || value === undefined || value === '' ? '' : String(value);
-}
-
-function getSavedRecord(result, isCreate) {
-    return isCreate
-        ? result?.data?.uiapi?.Asset__cCreate?.Record
-        : result?.data?.uiapi?.Asset__cUpdate?.Record;
 }

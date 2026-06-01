@@ -3,12 +3,7 @@
         <lightning-card title={title}>
             <div class="content slds-p-horizontal_medium slds-p-bottom_medium">
             <div class="toolbar slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
-                <div>
-                    <h2 class="slds-text-heading_small">{heading}</h2>
-                    <p class="slds-text-body_small slds-text-color_weak">
-                        {description}
-                    </p>
-                </div>
+                <div></div>
                 <lightning-button-icon
                     icon-name="utility:refresh"
                     alternative-text="Refresh"
@@ -53,14 +48,6 @@
                                     ></lightning-icon>
                                     <a href={entry.id} target="_blank">{entry.name}</a>
                                 </div>
-                                <template lwc:if={entry.isAssetEntry}>
-                                    <lightning-button
-                                        data-entry-id={entry.id}
-                                        icon-name="utility:add"
-                                        label="Add Asset"
-                                        onclick={handleAddAsset}
-                                    ></lightning-button>
-                                </template>
                             </div>
 
                             <div class="gift-grid" role="table" aria-label="Gift entry details">
@@ -81,78 +68,14 @@
                             </div>
 
                             <template lwc:if={entry.isAssetEntry}>
-                                <div class="asset-area">
-                                    <template lwc:if={entry.assets.length}>
-                                        <template for:each={entry.assets} for:item="asset">
-                                            <div key={asset.id} class="asset-row">
-                                                <div class="asset-row-title">
-                                                    <lightning-icon
-                                                        icon-name="standard:asset_object"
-                                                        size="x-small"
-                                                        alternative-text="Asset"
-                                                    ></lightning-icon>
-                                                    <span>{asset.displayName}</span>
-                                                </div>
-
-                                                <div class="asset-fields">
-                                                    <lightning-record-picker
-                                                        data-entry-id={entry.id}
-                                                        data-asset-id={asset.id}
-                                                        data-field="appraisedById"
-                                                        label="Who Appraised It"
-                                                        object-api-name="User"
-                                                        value={asset.appraisedById}
-                                                        onchange={handleAssetChange}
-                                                    ></lightning-record-picker>
-                                                    <lightning-input
-                                                        data-entry-id={entry.id}
-                                                        data-asset-id={asset.id}
-                                                        data-field="appraisedValue"
-                                                        type="number"
-                                                        formatter="currency"
-                                                        step="0.01"
-                                                        label="Asset Appraised Value"
-                                                        value={asset.appraisedValue}
-                                                        onchange={handleAssetChange}
-                                                    ></lightning-input>
-                                                    <lightning-input
-                                                        data-entry-id={entry.id}
-                                                        data-asset-id={asset.id}
-                                                        data-field="appraisalDate"
-                                                        type="date"
-                                                        label="Appraisal Date"
-                                                        value={asset.appraisalDate}
-                                                        onchange={handleAssetChange}
-                                                    ></lightning-input>
-                                                    <lightning-combobox
-                                                        data-entry-id={entry.id}
-                                                        data-asset-id={asset.id}
-                                                        data-field="assetType"
-                                                        label="Asset Type"
-                                                        value={asset.assetType}
-                                                        options={assetTypeOptions}
-                                                        onchange={handleAssetChange}
-                                                    ></lightning-combobox>
-                                                    <lightning-button
-                                                        class="save-button"
-                                                        data-entry-id={entry.id}
-                                                        data-asset-id={asset.id}
-                                                        variant="brand"
-                                                        icon-name="utility:save"
-                                                        label="Save"
-                                                        disabled={isSaving}
-                                                        onclick={handleSaveAsset}
-                                                    ></lightning-button>
-                                                </div>
-                                            </div>
-                                        </template>
-                                    </template>
-                                    <template lwc:else>
-                                        <div class="empty-assets slds-text-color_weak">
-                                            No assets have been added for this gift entry.
-                                        </div>
-                                    </template>
-                                </div>
+                                <c-gift-entry-asset-post-processing
+                                    entry-id={entry.id}
+                                    gift-transaction-id={entry.giftTransactionId}
+                                    assets={entry.assets}
+                                    onassetdirtycountchange={handleAssetDirtyCountChange}
+                                    onassetsaved={handleAssetSaved}
+                                    onasseterror={handleAssetError}
+                                ></c-gift-entry-asset-post-processing>
                             </template>
 
                             <template lwc:if={entry.isStockEntry}>

@@ -1,0 +1,87 @@
+<template>
+    <div class="asset-area">
+        <div class="asset-toolbar">
+            <div class="asset-heading">
+                <span class="asset-icon">
+                    <lightning-icon
+                        icon-name="standard:asset_object"
+                        size="x-small"
+                        alternative-text="Asset"
+                    ></lightning-icon>
+                </span>
+                <span>Assets</span>
+            </div>
+            <lightning-button
+                icon-name="utility:add"
+                label="Add Asset"
+                onclick={handleAddAsset}
+            ></lightning-button>
+        </div>
+
+        <template lwc:if={hasAssets}>
+            <template for:each={assets} for:item="asset">
+                <div key={asset.id} class="asset-row">
+                    <div class="asset-row-title">
+                        <lightning-icon
+                            icon-name="standard:asset_object"
+                            size="x-small"
+                            alternative-text="Asset"
+                        ></lightning-icon>
+                        <span>{asset.displayName}</span>
+                    </div>
+
+                    <div class="asset-fields">
+                        <lightning-record-picker
+                            data-asset-id={asset.id}
+                            data-field="appraisedById"
+                            label="Who Appraised It"
+                            object-api-name="User"
+                            value={asset.appraisedById}
+                            onchange={handleAssetChange}
+                        ></lightning-record-picker>
+                        <lightning-input
+                            data-asset-id={asset.id}
+                            data-field="appraisedValue"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            label="Asset Appraised Value"
+                            value={asset.appraisedValue}
+                            onchange={handleAssetChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-asset-id={asset.id}
+                            data-field="appraisalDate"
+                            type="date"
+                            label="Appraisal Date"
+                            value={asset.appraisalDate}
+                            onchange={handleAssetChange}
+                        ></lightning-input>
+                        <lightning-combobox
+                            data-asset-id={asset.id}
+                            data-field="assetType"
+                            label="Asset Type"
+                            value={asset.assetType}
+                            options={assetTypeOptions}
+                            onchange={handleAssetChange}
+                        ></lightning-combobox>
+                        <lightning-button
+                            class="save-button"
+                            data-asset-id={asset.id}
+                            variant="brand"
+                            icon-name="utility:save"
+                            label="Save"
+                            disabled={isSaving}
+                            onclick={handleSaveAsset}
+                        ></lightning-button>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template lwc:else>
+            <div class="empty-assets slds-text-color_weak">
+                No assets have been added for this gift entry.
+            </div>
+        </template>
+    </div>
+</template>
