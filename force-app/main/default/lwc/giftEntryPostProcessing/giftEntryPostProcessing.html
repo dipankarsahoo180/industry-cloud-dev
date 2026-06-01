@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <lightning-card title="Gift Entry Post Processing">
+        <lightning-card title={title}>
             <div class="content slds-p-horizontal_medium slds-p-bottom_medium">
             <div class="toolbar slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
                 <div>
-                    <h2 class="slds-text-heading_small">Successful asset gift entries</h2>
+                    <h2 class="slds-text-heading_small">{heading}</h2>
                     <p class="slds-text-body_small slds-text-color_weak">
-                        Gift entries with Payment Method = Asset and Status = Success.
+                        {description}
                     </p>
                 </div>
                 <lightning-button-icon
@@ -24,7 +24,7 @@
             <template lwc:elseif={missingRecordId}>
                 <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
                     <span class="slds-assistive-text">Warning</span>
-                    <h2>Open this page from a Gift Batch record so the record id can be passed in.</h2>
+                    <h2>{missingContextMessage}</h2>
                 </div>
             </template>
 
@@ -163,7 +163,7 @@
                         alternative-text="No records"
                     ></lightning-icon>
                     <p class="slds-m-top_small">
-                        No successful Gift Entries with Asset payment method were found for this batch.
+                        {emptyStateMessage}
                     </p>
                 </div>
             </template>

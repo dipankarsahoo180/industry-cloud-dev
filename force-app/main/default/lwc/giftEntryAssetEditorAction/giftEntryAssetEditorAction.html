@@ -1,0 +1,36 @@
+<template>
+    <template lwc:if={isLoading}>
+        <div class="loading slds-is-relative">
+            <lightning-spinner alternative-text="Loading Gift Entry"></lightning-spinner>
+        </div>
+    </template>
+
+    <template lwc:elseif={giftEntry.error}>
+        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+            <span class="slds-assistive-text">Error</span>
+            <h2>{errorMessage}</h2>
+        </div>
+        <div class="footer">
+            <lightning-button label="Close" onclick={handleClose}></lightning-button>
+        </div>
+    </template>
+
+    <template lwc:elseif={hasGiftTransactionId}>
+        <c-gift-entry-post-processing
+            gift-transaction-id={giftTransactionId}
+            modal-mode
+            close-component-name="c/giftEntryAssetEditorAction"
+            onassetpostprocessingclose={handleClose}
+        ></c-gift-entry-post-processing>
+    </template>
+
+    <template lwc:else>
+        <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+            <span class="slds-assistive-text">Warning</span>
+            <h2>This Gift Entry does not have a Gift Transaction yet.</h2>
+        </div>
+        <div class="footer">
+            <lightning-button label="Close" onclick={handleClose}></lightning-button>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,24 @@
+/* SLDS 2 compatible — no hardcoded color values */
+
+.post-processing-wrapper {
+    min-height: 20rem;
+}
+
+.post-processing-header {
+    border-bottom: 1px solid var(--slds-g-color-border-base-1, #c9c9c9);
+}
+
+.header-title {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+}
+
+.embedded-asset-processing {
+    display: block;
+}
+
+.missing-context {
+    min-height: 12rem;
+}

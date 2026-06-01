@@ -87,6 +87,84 @@ const GIFT_ENTRIES_QUERY = gql`
     }
 `;
 
+const GIFT_ENTRY_BY_TRANSACTION_QUERY = gql`
+    query GiftEntryByTransactionAssetPostProcessing($giftTransactionId: ID!) {
+        uiapi {
+            query {
+                GiftEntry(
+                    first: 1
+                    where: {
+                        GiftTransactionId: { eq: $giftTransactionId }
+                        PaymentMethod: { eq: "Asset" }
+                        GiftProcessingStatus: { eq: "Success" }
+                    }
+                ) {
+                    edges {
+                        node {
+                            Id
+                            Name {
+                                value
+                            }
+                            Donor @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftReceivedDate {
+                                value
+                                displayValue
+                            }
+                            GiftAmount {
+                                value
+                                displayValue
+                            }
+                            PaymentMethod {
+                                value
+                                displayValue
+                            }
+                            GiftDesignation1 @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftEntryAssets__r(first: 50) @optional {
+                                edges {
+                                    node {
+                                        Id
+                                        Name {
+                                            value
+                                        }
+                                        Appraised_By__c {
+                                            value
+                                        }
+                                        Appraised_By__r @optional {
+                                            Name {
+                                                value
+                                            }
+                                        }
+                                        Appraised_Value__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Appraisal_Date__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Asset_Type__c {
+                                            value
+                                            displayValue
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
 const CREATE_ASSET_MUTATION = gql`
     mutation CreateGiftEntryAsset($input: Asset__cCreateInput!) {
         uiapi {
@@ -129,6 +207,7 @@ const SAVED_VALUE_PIN_DURATION_MS = 30000;
 
 export default class GiftEntryPostProcessing extends LightningElement {
     _recordId;
+    _giftTransactionId;
 
     entries = [];
     errors;
@@ -150,7 +229,36 @@ export default class GiftEntryPostProcessing extends LightningElement {
         return this._recordId;
     }
 
+    @api
+    set giftTransactionId(value) {
+        this._giftTransactionId = value;
+        this.isLoading = true;
+        this.missingRecordId = false;
+    }
+
+    get giftTransactionId() {
+        return this._giftTransactionId;
+    }
+
+    @api modalMode = false;
+
+    @api closeComponentName = 'c/giftEntryPostProcessingCustom';
+
+    get query() {
+        if (this.effectiveGiftTransactionId) {
+            return GIFT_ENTRY_BY_TRANSACTION_QUERY;
+        }
+
+        return GIFT_ENTRIES_QUERY;
+    }
+
     get variables() {
+        if (this.effectiveGiftTransactionId) {
+            return {
+                giftTransactionId: this.effectiveGiftTransactionId
+            };
+        }
+
         if (!this.effectiveRecordId) {
             return undefined;
         }
@@ -173,7 +281,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     connectedCallback() {
         this.missingRecordIdTimeout = window.setTimeout(() => {
-            if (!this.effectiveRecordId) {
+            if (!this.effectiveGiftTransactionId && !this.effectiveRecordId) {
                 this.isLoading = false;
                 this.missingRecordId = true;
             }
@@ -186,6 +294,40 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     get effectiveRecordId() {
         return this._recordId;
+    }
+
+    get effectiveGiftTransactionId() {
+        return this._giftTransactionId;
+    }
+
+    get isSingleGiftMode() {
+        return !!this.effectiveGiftTransactionId;
+    }
+
+    get title() {
+        return this.isSingleGiftMode ? 'Gift Entry Asset Post Processing' : 'Gift Entry Post Processing';
+    }
+
+    get heading() {
+        return this.isSingleGiftMode ? 'Asset details for processed gift' : 'Successful asset gift entries';
+    }
+
+    get description() {
+        return this.isSingleGiftMode
+            ? 'Add or update the asset details for this processed Gift Entry.'
+            : 'Gift entries with Payment Method = Asset and Status = Success.';
+    }
+
+    get missingContextMessage() {
+        return this.isSingleGiftMode
+            ? 'Gift Transaction id was not available from the post-processing modal.'
+            : 'Open this page from a Gift Batch record so the record id can be passed in.';
+    }
+
+    get emptyStateMessage() {
+        return this.isSingleGiftMode
+            ? 'This processed gift entry was not found, or it is not an Asset gift with Success status.'
+            : 'No successful Gift Entries with Asset payment method were found for this batch.';
     }
 
     get assetTypeOptions() {
@@ -213,7 +355,12 @@ export default class GiftEntryPostProcessing extends LightningElement {
     }
 
     get showEmptyState() {
-        return !!this.effectiveRecordId && !this.isLoading && !this.errors && !this.hasEntries;
+        return (
+            !!(this.effectiveGiftTransactionId || this.effectiveRecordId) &&
+            !this.isLoading &&
+            !this.errors &&
+            !this.hasEntries
+        );
     }
 
     get errorMessages() {
@@ -221,14 +368,14 @@ export default class GiftEntryPostProcessing extends LightningElement {
     }
 
     @wire(graphql, {
-        query: GIFT_ENTRIES_QUERY,
+        query: '$query',
         variables: '$variables',
-        operationName: 'GiftEntryAssetPostProcessing'
+        operationName: '$operationName'
     })
     wiredGiftEntries(result) {
         this.wiredQueryResult = result;
 
-        if (!this.effectiveRecordId) {
+        if (!this.effectiveGiftTransactionId && !this.effectiveRecordId) {
             this.isLoading = true;
             return;
         }
@@ -246,6 +393,12 @@ export default class GiftEntryPostProcessing extends LightningElement {
         } else {
             this.isLoading = true;
         }
+    }
+
+    get operationName() {
+        return this.effectiveGiftTransactionId
+            ? 'GiftEntryByTransactionAssetPostProcessing'
+            : 'GiftEntryAssetPostProcessing';
     }
 
     mapGiftEntries(data) {
@@ -588,8 +741,8 @@ export default class GiftEntryPostProcessing extends LightningElement {
     }
 
     handleRefresh() {
-        if (!this.effectiveRecordId) {
-            this.showToast('Waiting for record', 'Gift Batch record id is not available yet.', 'info');
+        if (!this.effectiveGiftTransactionId && !this.effectiveRecordId) {
+            this.showToast('Waiting for record', 'Gift Entry context is not available yet.', 'info');
             return;
         }
 
@@ -606,6 +759,17 @@ export default class GiftEntryPostProcessing extends LightningElement {
     }
 
     async handleClose() {
+        if (this.modalMode) {
+            this.dispatchEvent(
+                new CustomEvent('assetpostprocessingclose', {
+                    detail: {
+                        componentName: this.closeComponentName
+                    }
+                })
+            );
+            return;
+        }
+
         try {
             const focusedTabInfo = await getFocusedTabInfo();
             await closeTab(focusedTabInfo.tabId);

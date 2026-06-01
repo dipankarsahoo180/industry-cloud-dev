@@ -1,0 +1,53 @@
+<template>
+    <div class="post-processing-wrapper">
+        <div class="post-processing-header slds-p-horizontal_medium slds-p-top_medium">
+            <div class="header-title">
+                <lightning-icon
+                    icon-name="utility:success"
+                    alternative-text="Success"
+                    size="small"
+                    variant="success"
+                ></lightning-icon>
+                <div>
+                    <h2 class="slds-text-heading_small">Gift Entry Processed</h2>
+                    <p class="slds-text-body_small slds-text-color_weak">
+                        Add asset details before closing the post-processing modal.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <template lwc:if={hasAssetContext}>
+            <c-gift-entry-post-processing
+                class="embedded-asset-processing"
+                gift-transaction-id={giftTransactionId}
+                modal-mode
+                close-component-name="c/giftEntryPostProcessingCustom"
+                onassetpostprocessingclose={handleDone}
+            ></c-gift-entry-post-processing>
+        </template>
+        <template lwc:else>
+            <div class="missing-context slds-p-around_large slds-text-align_center">
+                <lightning-icon
+                    icon-name="utility:warning"
+                    alternative-text="Missing Gift Entry"
+                    size="small"
+                ></lightning-icon>
+                <h2 class="slds-text-heading_small slds-m-top_small">
+                    Gift Transaction details were not available.
+                </h2>
+                <template lwc:if={hasGiftTransactionId}>
+                    <p class="slds-text-body_small slds-text-color_weak slds-m-top_x-small">
+                        Transaction Reference: <strong>{giftTransactionId}</strong>
+                    </p>
+                </template>
+                <lightning-button
+                    class="slds-m-top_medium"
+                    variant="brand"
+                    label="Done"
+                    onclick={handleDone}
+                ></lightning-button>
+            </div>
+        </template>
+    </div>
+</template>
