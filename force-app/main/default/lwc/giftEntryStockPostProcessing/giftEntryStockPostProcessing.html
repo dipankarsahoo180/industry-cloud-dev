@@ -1,0 +1,82 @@
+<template>
+    <div class="stock-area">
+        <div class="stock-toolbar">
+            <div class="stock-heading">
+                <lightning-icon
+                    icon-name="standard:orders"
+                    size="x-small"
+                    alternative-text="Stock"
+                ></lightning-icon>
+                <span>Stocks</span>
+            </div>
+            <lightning-button
+                icon-name="utility:add"
+                label="Add Stock"
+                onclick={handleAddStock}
+            ></lightning-button>
+        </div>
+
+        <template lwc:if={hasStocks}>
+            <template for:each={stocks} for:item="stock">
+                <div key={stock.id} class="stock-row">
+                    <div class="stock-row-title">
+                        <span>{stock.displayName}</span>
+                    </div>
+                    <div class="stock-fields">
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="numberOfShares"
+                            type="number"
+                            step="0.0001"
+                            label="Number of Shares"
+                            value={stock.numberOfShares}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockTickerSymbol"
+                            type="text"
+                            label="Stock Ticker Symbol"
+                            value={stock.stockTickerSymbol}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockPrice"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            label="Stock Price"
+                            value={stock.stockPrice}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockStrikePrice"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            label="Stock Strike Price"
+                            value={stock.stockStrikePrice}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-button
+                            class="save-button"
+                            data-stock-id={stock.id}
+                            variant="brand"
+                            icon-name="utility:save"
+                            label="Save"
+                            disabled={isSaving}
+                            onclick={handleSaveStock}
+                        ></lightning-button>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template lwc:else>
+            <div class="empty-stocks slds-text-color_weak">
+                No stock records have been added for this gift entry.
+            </div>
+        </template>
+    </div>
+</template>

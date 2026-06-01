@@ -9,10 +9,10 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { executeMutation, gql, graphql } from 'lightning/graphql';
 
 const GIFT_ENTRIES_QUERY = gql`
-    query GiftEntryAssetPostProcessing($recordId: ID!) {
+    query GiftEntryPostProcessing($recordId: ID!) {
         uiapi {
             query {
-                GiftEntry(
+                AssetGiftEntries: GiftEntry(
                     first: 200
                     where: {
                         GiftBatchId: { eq: $recordId }
@@ -85,16 +85,84 @@ const GIFT_ENTRIES_QUERY = gql`
                         }
                     }
                 }
+                StockGiftEntries: GiftEntry(
+                    first: 200
+                    where: {
+                        GiftBatchId: { eq: $recordId }
+                        PaymentMethod: { eq: "Stock" }
+                        GiftProcessingStatus: { eq: "Success" }
+                    }
+                    orderBy: { GiftReceivedDate: { order: DESC } }
+                ) {
+                    edges {
+                        node {
+                            Id
+                            Name {
+                                value
+                            }
+                            Donor @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftReceivedDate {
+                                value
+                                displayValue
+                            }
+                            GiftAmount {
+                                value
+                                displayValue
+                            }
+                            PaymentMethod {
+                                value
+                                displayValue
+                            }
+                            GiftDesignation1 @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftTransactionId {
+                                value
+                            }
+                            GiftEntryStocks__r(first: 50) @optional {
+                                edges {
+                                    node {
+                                        Id
+                                        Name {
+                                            value
+                                        }
+                                        Number_of_Shares__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Stock_Ticker_Symbol__c {
+                                            value
+                                        }
+                                        Stock_Price__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Stock_Strike_Price__c {
+                                            value
+                                            displayValue
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 `;
 
 const GIFT_ENTRY_BY_TRANSACTION_QUERY = gql`
-    query GiftEntryByTransactionAssetPostProcessing($giftTransactionId: ID!) {
+    query GiftEntryByTransactionPostProcessing($giftTransactionId: ID!) {
         uiapi {
             query {
-                GiftEntry(
+                AssetGiftEntries: GiftEntry(
                     first: 1
                     where: {
                         GiftTransactionId: { eq: $giftTransactionId }
@@ -166,6 +234,73 @@ const GIFT_ENTRY_BY_TRANSACTION_QUERY = gql`
                         }
                     }
                 }
+                StockGiftEntries: GiftEntry(
+                    first: 1
+                    where: {
+                        GiftTransactionId: { eq: $giftTransactionId }
+                        PaymentMethod: { eq: "Stock" }
+                        GiftProcessingStatus: { eq: "Success" }
+                    }
+                ) {
+                    edges {
+                        node {
+                            Id
+                            Name {
+                                value
+                            }
+                            Donor @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftReceivedDate {
+                                value
+                                displayValue
+                            }
+                            GiftAmount {
+                                value
+                                displayValue
+                            }
+                            PaymentMethod {
+                                value
+                                displayValue
+                            }
+                            GiftDesignation1 @optional {
+                                Name {
+                                    value
+                                }
+                            }
+                            GiftTransactionId {
+                                value
+                            }
+                            GiftEntryStocks__r(first: 50) @optional {
+                                edges {
+                                    node {
+                                        Id
+                                        Name {
+                                            value
+                                        }
+                                        Number_of_Shares__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Stock_Ticker_Symbol__c {
+                                            value
+                                        }
+                                        Stock_Price__c {
+                                            value
+                                            displayValue
+                                        }
+                                        Stock_Strike_Price__c {
+                                            value
+                                            displayValue
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -223,6 +358,7 @@ export default class GiftEntryPostProcessing extends LightningElement {
     wiredQueryResult;
     missingRecordIdTimeout;
     savedAssetPins = new Map();
+    stockDirtyCounts = {};
 
     @api
     set recordId(value) {
@@ -311,17 +447,17 @@ export default class GiftEntryPostProcessing extends LightningElement {
     }
 
     get title() {
-        return this.isSingleGiftMode ? 'Gift Entry Asset Post Processing' : 'Gift Entry Post Processing';
+        return this.isSingleGiftMode ? 'Gift Entry Post Processing' : 'Gift Entry Post Processing';
     }
 
     get heading() {
-        return this.isSingleGiftMode ? 'Asset details for processed gift' : 'Successful asset gift entries';
+        return this.isSingleGiftMode ? 'Post-processing details for gift' : 'Post-processing gift entries';
     }
 
     get description() {
         return this.isSingleGiftMode
-            ? 'Add or update the asset details for this processed Gift Entry.'
-            : 'Gift entries with Payment Method = Asset and Status = Success.';
+            ? 'Add or update asset or stock details for this Gift Entry.'
+            : 'Asset and Stock gifts use Status = Success.';
     }
 
     get missingContextMessage() {
@@ -332,8 +468,8 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     get emptyStateMessage() {
         return this.isSingleGiftMode
-            ? 'This processed gift entry was not found, or it is not an Asset gift with Success status.'
-            : 'No successful Gift Entries with Asset payment method were found for this batch.';
+            ? 'This Gift Entry was not found, or it is not an eligible Asset or Stock gift.'
+            : 'No eligible Asset or Stock Gift Entries were found for this batch.';
     }
 
     get assetTypeOptions() {
@@ -352,12 +488,24 @@ export default class GiftEntryPostProcessing extends LightningElement {
         return this.getDirtyAssets().length;
     }
 
+    get dirtyStockCount() {
+        return Object.values(this.stockDirtyCounts).reduce((total, count) => total + count, 0);
+    }
+
+    get dirtyRecordCount() {
+        return this.dirtyAssetCount + this.dirtyStockCount;
+    }
+
     get hasDirtyAssets() {
         return this.dirtyAssetCount > 0;
     }
 
+    get hasDirtyRecords() {
+        return this.dirtyRecordCount > 0;
+    }
+
     get isSaveAllDisabled() {
-        return this.isSaving || !this.hasDirtyAssets;
+        return this.isSaving || !this.hasDirtyRecords;
     }
 
     get showEmptyState() {
@@ -403,19 +551,21 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     get operationName() {
         return this.effectiveGiftTransactionId
-            ? 'GiftEntryByTransactionAssetPostProcessing'
-            : 'GiftEntryAssetPostProcessing';
+            ? 'GiftEntryByTransactionPostProcessing'
+            : 'GiftEntryPostProcessing';
     }
 
     mapGiftEntries(data) {
-        const edges = data?.uiapi?.query?.GiftEntry?.edges || [];
+        const assetEdges = data?.uiapi?.query?.AssetGiftEntries?.edges || [];
+        const stockEdges = data?.uiapi?.query?.StockGiftEntries?.edges || [];
+        const entriesById = new Map();
 
-        return edges.map(({ node }) => {
+        assetEdges.forEach(({ node }) => {
             const assets = (node.GiftEntryAssets__r?.edges || []).map(({ node: asset }) =>
                 this.mapAsset(asset)
             );
 
-            return {
+            entriesById.set(node.Id, {
                 id: node.Id,
                 giftTransactionId: fieldValue(node.GiftTransactionId),
                 name: fieldValue(node.Name) || node.Id,
@@ -424,9 +574,38 @@ export default class GiftEntryPostProcessing extends LightningElement {
                 giftAmount: displayOrValue(node.GiftAmount),
                 paymentMethod: displayOrValue(node.PaymentMethod),
                 designation: fieldValue(node.GiftDesignation1?.Name),
-                assets
-            };
+                assets,
+                stocks: [],
+                isAssetEntry: true,
+                isStockEntry: false
+            });
         });
+
+        stockEdges.forEach(({ node }) => {
+            const existingEntry = entriesById.get(node.Id);
+            const stocks = (node.GiftEntryStocks__r?.edges || []).map(({ node: stock }) =>
+                this.mapStock(stock)
+            );
+
+            entriesById.set(node.Id, {
+                ...(existingEntry || {
+                    id: node.Id,
+                    giftTransactionId: fieldValue(node.GiftTransactionId),
+                    name: fieldValue(node.Name) || node.Id,
+                    donor: fieldValue(node.Donor?.Name),
+                    giftReceivedDate: displayOrValue(node.GiftReceivedDate),
+                    giftAmount: displayOrValue(node.GiftAmount),
+                    paymentMethod: displayOrValue(node.PaymentMethod),
+                    designation: fieldValue(node.GiftDesignation1?.Name),
+                    assets: []
+                }),
+                stocks,
+                isStockEntry: true,
+                isAssetEntry: existingEntry?.isAssetEntry || false
+            });
+        });
+
+        return [...entriesById.values()];
     }
 
     mapAsset(asset) {
@@ -441,6 +620,22 @@ export default class GiftEntryPostProcessing extends LightningElement {
             appraisalDateDisplay: displayOrValue(asset.Appraisal_Date__c),
             assetType: fieldValue(asset.Asset_Type__c),
             assetTypeDisplay: displayOrValue(asset.Asset_Type__c),
+            isNew: false,
+            isDirty: false
+        };
+    }
+
+    mapStock(stock) {
+        return {
+            id: stock.Id,
+            displayName: fieldValue(stock.Name) || 'Stock',
+            numberOfShares: fieldValue(stock.Number_of_Shares__c),
+            numberOfSharesDisplay: displayOrValue(stock.Number_of_Shares__c),
+            stockTickerSymbol: fieldValue(stock.Stock_Ticker_Symbol__c),
+            stockPrice: fieldValue(stock.Stock_Price__c),
+            stockPriceDisplay: displayOrValue(stock.Stock_Price__c),
+            stockStrikePrice: fieldValue(stock.Stock_Strike_Price__c),
+            stockStrikePriceDisplay: displayOrValue(stock.Stock_Strike_Price__c),
             isNew: false,
             isDirty: false
         };
@@ -597,9 +792,10 @@ export default class GiftEntryPostProcessing extends LightningElement {
 
     async handleSaveAll() {
         const dirtyAssets = this.getDirtyAssets();
+        const stockEditors = [...this.template.querySelectorAll('c-gift-entry-stock-post-processing')];
 
-        if (!dirtyAssets.length) {
-            this.showToast('Nothing to save', 'There are no unsaved asset changes.', 'info');
+        if (!dirtyAssets.length && !this.dirtyStockCount) {
+            this.showToast('Nothing to save', 'There are no unsaved post-processing changes.', 'info');
             return;
         }
 
@@ -637,6 +833,12 @@ export default class GiftEntryPostProcessing extends LightningElement {
             }
         }
 
+        for (const editor of stockEditors) {
+            const result = await editor.saveAll();
+            savedCount += result.savedCount;
+            failures.push(...result.failures.map((failure) => `Stock: ${failure}`));
+        }
+
         this.savingAssetId = null;
 
         if (failures.length) {
@@ -648,7 +850,24 @@ export default class GiftEntryPostProcessing extends LightningElement {
             return;
         }
 
-        this.showToast('Assets saved', `${savedCount} asset records were saved.`, 'success');
+        this.showToast('Records saved', `${savedCount} post-processing records were saved.`, 'success');
+    }
+
+    handleStockDirtyCountChange(event) {
+        const { entryId, count } = event.detail;
+
+        this.stockDirtyCounts = {
+            ...this.stockDirtyCounts,
+            [entryId]: count
+        };
+    }
+
+    handleStockSaved(event) {
+        this.showToast('Stock saved', `${event.detail.savedCount} stock record was saved.`, 'success');
+    }
+
+    handleStockError(event) {
+        this.showToast('Unable to save stock', event.detail.message, 'error');
     }
 
     getDirtyAssets() {
@@ -752,8 +971,8 @@ export default class GiftEntryPostProcessing extends LightningElement {
             return;
         }
 
-        if (this.hasDirtyAssets) {
-            this.showToast('Unsaved changes', 'Save all asset changes before refreshing.', 'warning');
+        if (this.hasDirtyRecords) {
+            this.showToast('Unsaved changes', 'Save all post-processing changes before refreshing.', 'warning');
             return;
         }
 

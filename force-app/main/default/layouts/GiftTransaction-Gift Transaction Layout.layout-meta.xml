@@ -55,6 +55,14 @@
         <relatedList>Asset__c.Gift_Transaction__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Stock_Ticker_Symbol__c</fields>
+        <fields>Number_of_Shares__c</fields>
+        <fields>Stock_Price__c</fields>
+        <fields>Stock_Strike_Price__c</fields>
+        <relatedList>Stock__c.Gift_Transaction__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <relatedLists>
