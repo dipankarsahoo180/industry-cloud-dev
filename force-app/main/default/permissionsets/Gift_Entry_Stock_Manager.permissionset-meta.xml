@@ -3,6 +3,11 @@
     <description>Allows users to manage stock records for processed Gift Entry stock payments.</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>GiftEntry.Stock_Details__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Stock__c.Gift_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>

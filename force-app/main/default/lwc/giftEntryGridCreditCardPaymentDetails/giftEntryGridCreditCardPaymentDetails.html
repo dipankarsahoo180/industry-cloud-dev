@@ -1,0 +1,53 @@
+<template>
+    <div class="payment-panel">
+        <div class="payment-heading">
+            <lightning-icon
+                icon-name="utility:credit_card"
+                size="x-small"
+                alternative-text="Credit Card"
+            ></lightning-icon>
+            <span>Credit Card Details</span>
+        </div>
+        <div class="payment-fields">
+            <lightning-input
+                data-field="cardNumber"
+                type="text"
+                label="Credit Card Number"
+                value={cardNumber}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
+            <lightning-input
+                data-field="last4"
+                type="text"
+                label="Last 4"
+                maxlength="4"
+                pattern="[0-9]{0,4}"
+                message-when-pattern-mismatch="Enter up to 4 digits."
+                value={last4}
+                disabled
+                onchange={handleInputChange}
+            ></lightning-input>
+            <lightning-input
+                data-field="expiryMonth"
+                type="number"
+                label="Expiry Month"
+                min="1"
+                max="12"
+                step="1"
+                value={expiryMonth}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
+            <lightning-input
+                data-field="expiryYear"
+                type="number"
+                label="Expiry Year"
+                step="1"
+                value={expiryYear}
+                onchange={handleInputChange}
+                required
+            ></lightning-input>
+        </div>
+    </div>
+</template>

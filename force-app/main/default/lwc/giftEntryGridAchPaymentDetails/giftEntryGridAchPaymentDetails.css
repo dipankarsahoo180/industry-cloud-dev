@@ -1,0 +1,11 @@
+.payment-panel {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.payment-heading {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    gap: 0.5rem;
+}

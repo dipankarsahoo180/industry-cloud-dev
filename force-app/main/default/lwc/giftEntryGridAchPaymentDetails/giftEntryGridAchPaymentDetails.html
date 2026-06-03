@@ -1,0 +1,17 @@
+<template>
+    <div class="payment-panel">
+        <div class="payment-heading">
+            <lightning-icon icon-name="utility:money" size="x-small" alternative-text="ACH"></lightning-icon>
+            <span>ACH Details</span>
+        </div>
+        <lightning-input
+            type="text"
+            label="Last 4"
+            maxlength="4"
+            pattern="[0-9]{0,4}"
+            message-when-pattern-mismatch="Enter up to 4 digits."
+            value={last4}
+            onchange={handleInputChange}
+        ></lightning-input>
+    </div>
+</template>

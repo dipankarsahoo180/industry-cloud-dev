@@ -1,0 +1,86 @@
+<template>
+    <div class="stock-editor">
+        <div class="stock-toolbar">
+            <div class="stock-heading">
+                <span class="stock-icon">
+                    <lightning-icon
+                        icon-name="standard:orders"
+                        size="x-small"
+                        alternative-text="Stock"
+                    ></lightning-icon>
+                </span>
+                <span>Stock Details</span>
+            </div>
+            <lightning-button
+                icon-name="utility:add"
+                label="Add Stock"
+                onclick={handleAddStock}
+            ></lightning-button>
+        </div>
+
+        <template lwc:if={hasStocks}>
+            <template for:each={stocks} for:item="stock">
+                <div key={stock.id} class="stock-row">
+                    <div class="stock-row-title">
+                        <lightning-icon
+                            icon-name="standard:orders"
+                            size="x-small"
+                            alternative-text="Stock"
+                        ></lightning-icon>
+                        <span>{stock.displayName}</span>
+                        <lightning-button-icon
+                            class="remove-button"
+                            data-stock-id={stock.id}
+                            icon-name="utility:delete"
+                            alternative-text="Remove stock"
+                            title="Remove stock"
+                            onclick={handleRemoveStock}
+                        ></lightning-button-icon>
+                    </div>
+                    <div class="stock-fields">
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="numberOfShares"
+                            type="number"
+                            step="0.0001"
+                            min="0.0001"
+                            label="Number of Shares"
+                            value={stock.numberOfShares}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockTickerSymbol"
+                            type="text"
+                            label="Stock Ticker Symbol"
+                            value={stock.stockTickerSymbol}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockPrice"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            min="0"
+                            label="Stock Price"
+                            value={stock.stockPrice}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-stock-id={stock.id}
+                            data-field="stockStrikePrice"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            min="0"
+                            label="Stock Strike Price"
+                            value={stock.stockStrikePrice}
+                            onchange={handleStockChange}
+                        ></lightning-input>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

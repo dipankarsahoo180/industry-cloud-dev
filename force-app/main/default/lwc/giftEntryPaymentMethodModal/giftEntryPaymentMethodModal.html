@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Payment Information" icon-name="utility:money">
+        <div class="modal-content slds-p-around_medium">
+            <lightning-record-edit-form object-api-name="GiftEntry">
+                <lightning-input-field
+                    data-field="PaymentMethod"
+                    field-name="PaymentMethod"
+                    value={paymentMethod}
+                    onchange={handlePaymentMethodChange}
+                    required
+                ></lightning-input-field>
+            </lightning-record-edit-form>
+
+            <template lwc:if={showCreditCardDetails}>
+                <c-gift-entry-grid-credit-card-payment-details
+                    payment-details={cardDetails}
+                ></c-gift-entry-grid-credit-card-payment-details>
+            </template>
+
+            <template lwc:if={showAchDetails}>
+                <c-gift-entry-grid-ach-payment-details
+                    payment-details={achDetails}
+                ></c-gift-entry-grid-ach-payment-details>
+            </template>
+
+            <template lwc:if={showCheckDetails}>
+                <c-gift-entry-grid-check-payment-details
+                    payment-details={checkDetails}
+                ></c-gift-entry-grid-check-payment-details>
+            </template>
+
+            <template lwc:if={showStockDetails}>
+                <c-gift-entry-grid-stock-details-editor
+                    stocks={stocks}
+                ></c-gift-entry-grid-stock-details-editor>
+            </template>
+
+            <template lwc:if={showNoMethodSpecificDetails}>
+                <div class="empty-details slds-text-color_weak">
+                    No additional payment details are required for this payment method.
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

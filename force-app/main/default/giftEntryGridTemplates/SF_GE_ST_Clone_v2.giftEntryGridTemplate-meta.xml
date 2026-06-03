@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GiftEntryGridTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Cloned Test gift entry</description>
+    <developerName>SF_GE_ST_Clone_v2</developerName>
+    <isSingleGiftDefault>false</isSingleGiftDefault>
+    <masterLabel>SF GE ST Clone v2</masterLabel>
+    <templateConfiguration>templateName: SF GE ST Clone v2
+apiVersion: 66.0
+columns:
+ -
+  columnId: Donor
+  columnType: Component
+  columnField:
+    sourceField: DonorId
+    isFieldRequired: true
+    isFieldHidden: false
+  columnComponent:
+    componentNameDisplay: runtime_industries_frops/giftEntryGridColumnDisplay
+    componentNameEdit: runtime_industries_frops/giftEntryGridLookup
+  columnModal:
+    modalTitleLabel: $Label.GiftEntryGrid.AddDonorDetailsModalTitle
+    modalComponent:
+      componentName: runtime_industries_frops/giftEntryGridFieldsModal
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: $Label.GiftEntryGrid.DonorExpandIconAltText
+      lockIcon: utility:lock
+      lockIconAltText: $Label.GiftEntryGrid.LockIconAltText
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+    modalAltTitleLabel: $Label.GiftEntryGrid.EditDonorDetailsModalTitle
+    modalAltTitleLabelVisibilityRule:
+     -
+      field: DonorId
+      values:
+       - null
+      operator: NOT_EQUALS
+      multipleRulesEvaluationOperator: AND
+    modalFields:
+     -
+      sourceField: GiftType
+      fieldLabel: $Label.GiftEntryGrid.DonorType
+      isFieldRequired: true
+      isFieldHidden: false
+      defaultValue: Individual
+      fieldReadOnlyRule:
+       -
+        field: DonorId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: OrganizationName
+      isFieldRequired: true
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Organizational
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: Salutation
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: FirstName
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: LastName
+      isFieldRequired: true
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: Email
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: HomePhone
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: MobilePhone
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Individual
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: MobilePhone
+      fieldLabel: $Label.GiftEntryGrid.OrganizationPhone
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: GiftType
+        values:
+         - Organizational
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: Street
+      isFieldRequired: false
+      isFieldHidden: false
+     -
+      sourceField: City
+      isFieldRequired: false
+      isFieldHidden: false
+     -
+      sourceField: State
+      isFieldRequired: false
+      isFieldHidden: false
+     -
+      sourceField: PostalCode
+      isFieldRequired: false
+      isFieldHidden: false
+     -
+      sourceField: Country
+      isFieldRequired: false
+      isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 240
+  columnLabel: $Label.GiftEntryGrid.DonorLookup
+ -
+  columnId: GiftReceivedDate
+  columnType: Field
+  columnField:
+    sourceField: GiftReceivedDate
+    isFieldRequired: true
+    isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 180
+  columnLabel: GiftReceivedDate
+ -
+  columnId: Commitments
+  columnType: Component
+  columnField:
+    sourceField: GiftCommitmentId
+    isFieldRequired: false
+    isFieldHidden: false
+  columnComponent:
+    componentNameDisplay: runtime_industries_frops/giftEntryGridColumnDisplay
+    componentNameEdit: runtime_industries_frops/giftEntryGridCommitmentColEdit
+  columnModal:
+    modalTitleLabel: $Label.GiftEntryGrid.NewCommitmentModalTitle
+    modalComponent:
+      componentName: runtime_industries_frops/giftEntryGridFieldsModal
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: $Label.GiftEntryGrid.CommitmentExpandIconAltText
+      lockIcon: utility:lock
+      lockIconAltText: $Label.GiftEntryGrid.LockIconAltText
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+    modalAltTitleLabel: $Label.GiftEntryGrid.ViewCommitmentModalTitle
+    modalAltTitleLabelVisibilityRule:
+     -
+      field: GiftCommitmentId
+      values:
+       - null
+      operator: NOT_EQUALS
+      multipleRulesEvaluationOperator: AND
+    modalFields:
+     -
+      sourceField: EffectiveStartDate
+      fieldLabel: $Label.GiftEntryGrid.CommitmentEffectiveStartDateLabel
+      isFieldRequired: true
+      isFieldHidden: false
+      fieldReadOnlyRule:
+       -
+        field: GiftCommitmentId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: ExpectedEndDate
+      fieldLabel: $Label.GiftEntryGrid.CommitmentExpectedEndDateLabel
+      isFieldRequired: false
+      isFieldHidden: false
+      fieldReadOnlyRule:
+       -
+        field: GiftCommitmentId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: TransactionPeriod
+      isFieldRequired: true
+      isFieldHidden: false
+      fieldReadOnlyRule:
+       -
+        field: GiftCommitmentId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: TransactionInterval
+      isFieldRequired: true
+      isFieldHidden: false
+      fieldReadOnlyRule:
+       -
+        field: GiftCommitmentId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: TransactionDay
+      isFieldRequired: true
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: TransactionPeriod
+        values:
+         - Monthly
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+      fieldReadOnlyRule:
+       -
+        field: GiftCommitmentId
+        values:
+         - null
+        operator: NOT_EQUALS
+        multipleRulesEvaluationOperator: AND
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 240
+  columnLabel: $Label.GiftEntryGrid.CommitmentColumnLabel
+ -
+  columnId: GiftAmount
+  columnType: Field
+  columnField:
+    sourceField: GiftAmount
+    isFieldRequired: false
+    isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 160
+  columnLabel: GiftAmount
+ -
+  columnId: PaymentMethod
+  columnType: Field
+  columnField:
+    sourceField: PaymentMethod
+    isFieldRequired: true
+    isFieldHidden: false
+  columnModal:
+    modalTitleLabel: $Label.GiftEntryGrid.PaymentInformationModalTitle
+    modalComponent:
+      componentName: c/giftEntryPaymentMethodModal
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: $Label.GiftEntryGrid.PaymentMethodIconAltText
+      lockIcon: utility:lock
+      lockIconAltText: $Label.GiftEntryGrid.LockIconAltText
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+    modalFields:
+     -
+      sourceField: PaymentMethod
+      isFieldRequired: true
+      isFieldHidden: false
+     -
+      sourceField: Last4
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: PaymentMethod
+        values:
+         - Credit Card
+         - ACH
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: ExpiryMonth
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: PaymentMethod
+        values:
+         - Credit Card
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: ExpiryYear
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: PaymentMethod
+        values:
+         - Credit Card
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: CheckDate
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: PaymentMethod
+        values:
+         - Check
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: PaymentIdentifier
+      isFieldRequired: false
+      isFieldHidden: false
+      visibilityRules:
+       -
+        field: PaymentMethod
+        values:
+         - Check
+        operator: EQUALS
+        multipleRulesEvaluationOperator: AND
+     -
+      sourceField: Stock_Details__c
+      isFieldRequired: false
+      isFieldHidden: true
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 180
+  columnLabel: PaymentMethod
+ -
+  columnId: OutreachSourceCode
+  columnType: Field
+  columnField:
+    sourceField: OutreachSourceCodeId
+    isFieldRequired: false
+    isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 200
+  columnLabel: $Label.GiftEntryGrid.OutreachSourceCodeLookup
+ -
+  columnId: Campaign
+  columnType: Field
+  columnField:
+    sourceField: CampaignId
+    isFieldRequired: false
+    isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 200
+  columnLabel: $Label.GiftEntryGrid.CampaignLookup
+ -
+  columnId: Designations
+  columnType: Component
+  columnField:
+    sourceField: GiftDesignation1Id
+    isFieldRequired: false
+    isFieldHidden: false
+  columnComponent:
+    componentNameDisplay: runtime_industries_frops/giftEntryGridColumnDisplay
+    componentNameEdit: runtime_industries_frops/giftEntryGridLookup
+  columnModal:
+    modalTitleLabel: $Label.GiftEntryGrid.DesignationsModalTitle
+    modalComponent:
+      componentName: runtime_industries_frops/giftEntryGridDesignation
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: $Label.GiftEntryGrid.DesignationExpandIconAltText
+      lockIcon: utility:lock
+      lockIconAltText: $Label.GiftEntryGrid.LockIconAltText
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 240
+  columnLabel: $Label.GiftEntryGrid.DesignationsLookup
+ -
+  columnId: SoftCredits
+  columnType: Component
+  columnField:
+    sourceField: RecipientId
+    isFieldRequired: false
+    isFieldHidden: false
+  columnComponent:
+    componentNameDisplay: runtime_industries_frops/giftEntryGridColumnDisplay
+    componentNameEdit: runtime_industries_frops/giftEntryGridLookup
+  columnModal:
+    modalTitleLabel: $Label.GiftEntryGrid.SoftCreditsModalTitle
+    modalComponent:
+      componentName: runtime_industries_frops/giftEntryGridSoftCredit
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: $Label.GiftEntryGrid.SoftCreditsExpandIconAltText
+      lockIcon: utility:lock
+      lockIconAltText: $Label.GiftEntryGrid.LockIconAltText
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 240
+  columnLabel: $Label.GiftEntryGrid.SoftCreditsLookup
+ -
+  columnId: CurrencyIsoCode
+  columnType: Field
+  columnField:
+    sourceField: CurrencyIsoCode
+    isFieldRequired: true
+    isFieldHidden: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 0
+  columnLabel: CurrencyIsoCode
+ -
+  columnId: StockDetails
+  columnType: Field
+  columnField:
+    sourceField: Stock_Details__c
+    isFieldRequired: false
+    isFieldHidden: true
+  isColumnHidden: true
+  isColumnReadOnly: false
+  columnWidth: 0
+  columnLabel: Stock Details
+ -
+  columnId: 798c7c0c-f5ef-441d-8b98-0065efbad369
+  columnType: Field
+  columnField:
+    sourceField: GiftType
+    fieldLabel: GIft Type
+    isFieldRequired: false
+    isFieldHidden: false
+  columnModal:
+    modalTitleLabel: Gift Asset Entry
+    modalComponent:
+      componentName: c/giftEntryPostProcessingCustom
+    modalIcon:
+      expandIcon: utility:expand_alt
+      expandIconAltText: Expand to view details
+      lockIcon: utility:lock
+      lockIconAltText: Column is locked
+      noIconAltText: &quot;&quot;
+    isModalReadOnly: false
+  isColumnHidden: false
+  isColumnReadOnly: false
+  columnWidth: 200
+  columnLabel: GIft Type
+postSaveComponent:
+  componentName: c/giftEntryPostProcessingCustom</templateConfiguration>
+</GiftEntryGridTemplate>

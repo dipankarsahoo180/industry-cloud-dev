@@ -1,0 +1,24 @@
+<template>
+    <div class="payment-panel">
+        <div class="payment-heading">
+            <lightning-icon icon-name="utility:form" size="x-small" alternative-text="Check"></lightning-icon>
+            <span>Check Details</span>
+        </div>
+        <div class="payment-fields">
+            <lightning-input
+                data-field="checkDate"
+                type="date"
+                label="Check Date"
+                value={checkDate}
+                onchange={handleInputChange}
+            ></lightning-input>
+            <lightning-input
+                data-field="paymentIdentifier"
+                type="text"
+                label="Payment Identifier"
+                value={paymentIdentifier}
+                onchange={handleInputChange}
+            ></lightning-input>
+        </div>
+    </div>
+</template>
