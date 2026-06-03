@@ -366,6 +366,10 @@ columns:
       sourceField: Stock_Details__c
       isFieldRequired: false
       isFieldHidden: true
+     -
+      sourceField: Asset_Details__c
+      isFieldRequired: false
+      isFieldHidden: true
   isColumnHidden: false
   isColumnReadOnly: false
   columnWidth: 180
@@ -464,6 +468,17 @@ columns:
   isColumnReadOnly: false
   columnWidth: 0
   columnLabel: Stock Details
+ -
+  columnId: AssetDetails
+  columnType: Field
+  columnField:
+    sourceField: Asset_Details__c
+    isFieldRequired: false
+    isFieldHidden: true
+  isColumnHidden: true
+  isColumnReadOnly: false
+  columnWidth: 0
+  columnLabel: Asset Details
  -
   columnId: 798c7c0c-f5ef-441d-8b98-0065efbad369
   columnType: Field

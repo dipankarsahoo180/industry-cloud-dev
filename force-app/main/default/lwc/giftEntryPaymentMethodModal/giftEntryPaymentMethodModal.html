@@ -35,6 +35,12 @@
                 ></c-gift-entry-grid-stock-details-editor>
             </template>
 
+            <template lwc:if={showAssetDetails}>
+                <c-gift-entry-grid-asset-details-editor
+                    assets={assets}
+                ></c-gift-entry-grid-asset-details-editor>
+            </template>
+
             <template lwc:if={showNoMethodSpecificDetails}>
                 <div class="empty-details slds-text-color_weak">
                     No additional payment details are required for this payment method.

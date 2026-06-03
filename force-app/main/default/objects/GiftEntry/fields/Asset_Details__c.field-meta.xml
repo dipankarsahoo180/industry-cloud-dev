@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Details__c</fullName>
+    <description>Stores asset gift details entered in the Gift Entry Grid before post-processing creates Asset records.</description>
+    <externalId>false</externalId>
+    <label>Asset Details</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

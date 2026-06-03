@@ -1,6 +1,7 @@
 import { api, LightningElement } from 'lwc';
 
 const STOCK_PAYMENT_METHOD = 'Stock';
+const ASSET_PAYMENT_METHOD = 'Asset';
 const CREDIT_CARD_PAYMENT_METHOD = 'Credit Card';
 const ACH_PAYMENT_METHOD = 'ACH';
 const CHECK_PAYMENT_METHOD = 'Check';
@@ -13,6 +14,7 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
     achDetails = {};
     checkDetails = {};
     stocks = [];
+    assets = [];
 
     @api
     set modalFields(value) {
@@ -38,6 +40,10 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
         return this.paymentMethod === STOCK_PAYMENT_METHOD;
     }
 
+    get showAssetDetails() {
+        return this.paymentMethod === ASSET_PAYMENT_METHOD;
+    }
+
     get showCreditCardDetails() {
         return this.paymentMethod === CREDIT_CARD_PAYMENT_METHOD;
     }
@@ -55,7 +61,8 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
             this.showCreditCardDetails ||
             this.showAchDetails ||
             this.showCheckDetails ||
-            this.showStockDetails
+            this.showStockDetails ||
+            this.showAssetDetails
         );
     }
 
@@ -110,6 +117,8 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
             result.PaymentIdentifier = details.paymentIdentifier || null;
         } else if (this.showStockDetails) {
             result.Stock_Details__c = JSON.stringify(this.getStockDetails());
+        } else if (this.showAssetDetails) {
+            result.Asset_Details__c = JSON.stringify(this.getAssetDetails());
         }
 
         return result;
@@ -134,6 +143,7 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
             paymentIdentifier: normalizeFieldValue(this._rowData.PaymentIdentifier)
         };
         this.stocks = parseStockDetails(normalizeFieldValue(this._rowData.Stock_Details__c));
+        this.assets = parseAssetDetails(normalizeFieldValue(this._rowData.Asset_Details__c));
     }
 
     handlePaymentMethodChange(event) {
@@ -157,12 +167,21 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
             return this.template.querySelector('c-gift-entry-grid-stock-details-editor');
         }
 
+        if (this.showAssetDetails) {
+            return this.template.querySelector('c-gift-entry-grid-asset-details-editor');
+        }
+
         return null;
     }
 
     getStockDetails() {
         const stockEditor = this.template.querySelector('c-gift-entry-grid-stock-details-editor');
         return stockEditor?.getStockDetails() || this.stocks || [];
+    }
+
+    getAssetDetails() {
+        const assetEditor = this.template.querySelector('c-gift-entry-grid-asset-details-editor');
+        return assetEditor?.getAssetDetails() || this.assets || [];
     }
 
     buildClearedPaymentFields() {
@@ -172,7 +191,8 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
             ExpiryYear: null,
             CheckDate: null,
             PaymentIdentifier: null,
-            Stock_Details__c: null
+            Stock_Details__c: null,
+            Asset_Details__c: null
         };
     }
 }
@@ -190,13 +210,21 @@ function normalizeFieldValue(value) {
 }
 
 function parseStockDetails(value) {
+    return parseJsonArray(value, 'stocks');
+}
+
+function parseAssetDetails(value) {
+    return parseJsonArray(value, 'assets');
+}
+
+function parseJsonArray(value, arrayProperty) {
     if (!value) {
         return [];
     }
 
     try {
         const parsedValue = JSON.parse(value);
-        return Array.isArray(parsedValue) ? parsedValue : parsedValue.stocks || [];
+        return Array.isArray(parsedValue) ? parsedValue : parsedValue[arrayProperty] || [];
     } catch (error) {
         return [];
     }

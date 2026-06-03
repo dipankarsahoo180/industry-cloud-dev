@@ -1,0 +1,81 @@
+<template>
+    <div class="asset-editor">
+        <div class="asset-toolbar">
+            <div class="asset-heading">
+                <span class="asset-icon">
+                    <lightning-icon
+                        icon-name="standard:asset_object"
+                        size="x-small"
+                        alternative-text="Asset"
+                    ></lightning-icon>
+                </span>
+                <span>Asset Details</span>
+            </div>
+            <lightning-button
+                icon-name="utility:add"
+                label="Add Asset"
+                onclick={handleAddAsset}
+            ></lightning-button>
+        </div>
+
+        <template lwc:if={hasAssets}>
+            <template for:each={assets} for:item="asset">
+                <div key={asset.id} class="asset-row">
+                    <div class="asset-row-title">
+                        <lightning-icon
+                            icon-name="standard:asset_object"
+                            size="x-small"
+                            alternative-text="Asset"
+                        ></lightning-icon>
+                        <span>{asset.displayName}</span>
+                        <lightning-button-icon
+                            class="remove-button"
+                            data-asset-id={asset.id}
+                            icon-name="utility:delete"
+                            alternative-text="Remove asset"
+                            title="Remove asset"
+                            onclick={handleRemoveAsset}
+                        ></lightning-button-icon>
+                    </div>
+                    <div class="asset-fields">
+                        <lightning-record-picker
+                            data-asset-id={asset.id}
+                            data-field="appraisedById"
+                            label="Who Appraised It"
+                            object-api-name="User"
+                            value={asset.appraisedById}
+                            onchange={handleAssetChange}
+                        ></lightning-record-picker>
+                        <lightning-input
+                            data-asset-id={asset.id}
+                            data-field="appraisedValue"
+                            type="number"
+                            formatter="currency"
+                            step="0.01"
+                            min="0"
+                            label="Asset Appraised Value"
+                            value={asset.appraisedValue}
+                            onchange={handleAssetChange}
+                        ></lightning-input>
+                        <lightning-input
+                            data-asset-id={asset.id}
+                            data-field="appraisalDate"
+                            type="date"
+                            label="Appraisal Date"
+                            value={asset.appraisalDate}
+                            onchange={handleAssetChange}
+                        ></lightning-input>
+                        <lightning-combobox
+                            data-asset-id={asset.id}
+                            data-field="assetType"
+                            label="Asset Type"
+                            value={asset.assetType}
+                            options={assetTypeOptions}
+                            onchange={handleAssetChange}
+                        ></lightning-combobox>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

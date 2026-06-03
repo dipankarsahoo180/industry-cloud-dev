@@ -1,0 +1,59 @@
+.asset-editor {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.asset-toolbar,
+.asset-heading,
+.asset-row-title {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.asset-toolbar {
+    justify-content: space-between;
+}
+
+.asset-heading,
+.asset-row-title {
+    font-weight: 700;
+}
+
+.asset-icon {
+    align-items: center;
+    background: var(--slds-g-color-palette-orange-95, #fff1e5);
+    border: 1px solid var(--slds-g-color-palette-orange-80, #ffba90);
+    border-radius: 999rem;
+    display: inline-flex;
+    height: 1.75rem;
+    justify-content: center;
+    width: 1.75rem;
+}
+
+.asset-row {
+    background: var(--slds-g-color-neutral-base-100, #ffffff);
+    border: 1px solid var(--slds-g-color-border-base-1, #c9c9c9);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+.asset-row-title {
+    margin-bottom: 0.5rem;
+}
+
+.remove-button {
+    margin-left: auto;
+}
+
+.asset-fields {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(4, minmax(8rem, 1fr));
+}
+
+@media (max-width: 48rem) {
+    .asset-fields {
+        grid-template-columns: 1fr;
+    }
+}

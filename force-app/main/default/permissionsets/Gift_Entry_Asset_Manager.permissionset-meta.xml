@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Allows users to manage appraised assets for processed Gift Entry asset payments.</description>
+    <description>Allows users to manage asset records for Gift Entry asset payments.</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset__c.Appraisal_Date__c</field>
@@ -19,6 +19,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset__c.Asset_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset__c.Gift_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>GiftEntry.Asset_Details__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
