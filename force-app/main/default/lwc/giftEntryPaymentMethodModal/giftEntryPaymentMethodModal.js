@@ -100,6 +100,11 @@ export default class GiftEntryPaymentMethodModal extends LightningElement {
 
     @api
     getComponentValues() {
+        const validation = this.validate();
+        if (!validation.isValid) {
+            throw new Error(Array.from(validation.invalidFields).join(', '));
+        }
+
         const result = this.buildClearedPaymentFields();
         result.PaymentMethod = this.paymentMethod;
 

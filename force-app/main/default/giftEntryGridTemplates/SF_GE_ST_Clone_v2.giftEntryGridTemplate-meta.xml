@@ -308,19 +308,18 @@ columns:
       isFieldHidden: false
      -
       sourceField: Last4
-      isFieldRequired: false
+      isFieldRequired: true
       isFieldHidden: false
       visibilityRules:
        -
         field: PaymentMethod
         values:
          - Credit Card
-         - ACH
         operator: EQUALS
         multipleRulesEvaluationOperator: AND
      -
       sourceField: ExpiryMonth
-      isFieldRequired: false
+      isFieldRequired: true
       isFieldHidden: false
       visibilityRules:
        -
@@ -331,7 +330,7 @@ columns:
         multipleRulesEvaluationOperator: AND
      -
       sourceField: ExpiryYear
-      isFieldRequired: false
+      isFieldRequired: true
       isFieldHidden: false
       visibilityRules:
        -
