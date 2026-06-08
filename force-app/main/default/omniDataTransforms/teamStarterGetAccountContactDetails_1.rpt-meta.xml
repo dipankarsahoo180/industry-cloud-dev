@@ -94,7 +94,7 @@
         <upsertKey>false</upsertKey>
     </omniDataTransformItem>
     <omniDataTransformItem>
-        <disabled>true</disabled>
+        <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
         <globalKey>teamStarterGetAccountContactDetailsCustom1470</globalKey>
         <inputFieldName>Account:Name</inputFieldName>
@@ -102,9 +102,10 @@
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>teamStarterGetAccountContactDetails</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>AccountName</outputFieldName>
+        <outputFieldName>Account:AccountName</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
         <upsertKey>false</upsertKey>
     </omniDataTransformItem>
     <omniDataTransformItem>
@@ -193,7 +194,7 @@
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>teamStarterGetAccountContactDetails</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>CITY</outputFieldName>
+        <outputFieldName>Account:AccountShippingCity</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <transformValuesMappings>{ }</transformValuesMappings>
@@ -322,7 +323,7 @@
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>teamStarterGetAccountContactDetails</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>COUNTRY</outputFieldName>
+        <outputFieldName>Account:AccountShippingCountry</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <transformValuesMappings>{ }</transformValuesMappings>
