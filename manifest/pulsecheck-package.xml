@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>GoalDefinition.Action_Plan_Template__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>AssessmentEnvelope</members>
+        <members>AssessmentQuestion</members>
+        <members>ProgramEnrollment</members>
+        <members>AcademicTermEnrollment</members>
+        <members>PulseCheckTemplate</members>
+        <members>GoalDefinition</members>
+        <members>CarePlanTemplate</members>
+        <members>GoalAssignment</members>
+        <members>GoalDefinition</members>
+        <members>BenefitAssignment</members>
+        <members>BenefitType</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>PC_Vibe_Check</members>
+        <name>DecisionMatrixDefinition</name>
+    </types>
+    <types>
+        <members>Pulse_check_Setup</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>EDU_Cloud_Get_Assessment_Response_Score</members>
+        <members>PC_Vibe_Check</members>
+        <members>Apply_Care_Plan_Template</members>
+        <members>Apply_Care_plan_Automatic</members>
+        <members>Apply_Care_plan_Customized</members>
+        <members>Complete_Action_Plan_And_Goal</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>CarePlan-Care Plan Layout</members>
+        <members>CarePlanTemplate-Care Plan Template Layout</members>
+        <members>GoalDefinition-Goal Definition Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Case.Apply_Care_Plan</members>
+        <name>QuickAction</name>
+    </types>
+    <version>67.0</version>
+</Package>
+<!-- 
+1. Setup Home → Education Cloud Setup checklist → Set Up Pulse Checks → confirm status On.
+2. Setup → Quick Find → discovery → Feature Settings → Discovery Framework → Assessments → General Settings → confirm Discovery Framework = Enabled.
+On the same General Settings page, confirm Enable Import/Export of Assessments = Enabled.
+Setup → Quick Find → Assessment Settings → confirm External User Assessments = Enabled.
+
+3. Setup --> Care Plan Settings --> Turn On
+4. Setup --> Guided Setup --> Action Plan --> Complete Tasks
+5. Sharing Settings --> Action Plan and Care Plan --> Public Read only
+
+1.	Create Pulse Check template with omniscript(assessment)
+2.	Create Pulse check (Occurrence must be populated - At least 1)
+3.	Create Assessment envelope 
+    a.	*Make sure to add Contact, LearnerCaseId and Usage Type (Pulse Check) — it will display under the case
+4.	Add assessment envelope item and it will display in the portal - make sure start date and end date are populated properly
+
+Debug -
+5.	If status says closed then, check envelope item status - should not be “Not started”.
+6. Set pulic read only for Action Plan Template in Sharing Settings
+!-->
