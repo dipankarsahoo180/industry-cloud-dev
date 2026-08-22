@@ -49,3 +49,5 @@ $RECYCLE.BIN/
 
 # Claude Code personal settings (may contain secrets) — do not commit
 .claude/settings.local.json
+.agents/
+skills-lock.json

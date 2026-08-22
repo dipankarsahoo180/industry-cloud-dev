@@ -53,14 +53,14 @@
 On the same General Settings page, confirm Enable Import/Export of Assessments = Enabled.
 Setup → Quick Find → Assessment Settings → confirm External User Assessments = Enabled.
 
-3. Setup --> Care Plan Settings --> Turn On
-4. Setup --> Guided Setup --> Action Plan --> Complete Tasks
-5. Sharing Settings --> Action Plan and Care Plan --> Public Read only
+3. Setup -> Care Plan Settings -> Turn On
+4. Setup -> Guided Setup -> Action Plan -> Complete Tasks
+5. Sharing Settings -> Action Plan and Care Plan -> Public Read only
 
 1.	Create Pulse Check template with omniscript(assessment)
 2.	Create Pulse check (Occurrence must be populated - At least 1)
 3.	Create Assessment envelope 
-    a.	*Make sure to add Contact, LearnerCaseId and Usage Type (Pulse Check) — it will display under the case
+    a.  *Make sure to add Contact, LearnerCaseId and Usage Type (Pulse Check) — it will display under the case
 4.	Add assessment envelope item and it will display in the portal - make sure start date and end date are populated properly
 
 Debug -

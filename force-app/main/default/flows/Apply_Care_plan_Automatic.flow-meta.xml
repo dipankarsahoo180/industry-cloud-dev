@@ -7356,7 +7356,7 @@
             <targetReference>Get_Case</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>Action_Plan_Slot_Count</name>
         <dataType>Number</dataType>
