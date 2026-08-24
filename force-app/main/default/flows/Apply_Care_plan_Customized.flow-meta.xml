@@ -11,28 +11,28 @@
             <assignToReference>Slot_1_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_1_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_1_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -57,7 +57,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -69,28 +69,28 @@
             <assignToReference>Slot_10_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_10_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_10_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -115,7 +115,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -127,28 +127,28 @@
             <assignToReference>Slot_11_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_11_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_11_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -173,7 +173,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -185,28 +185,28 @@
             <assignToReference>Slot_12_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_12_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_12_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -231,7 +231,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -243,28 +243,28 @@
             <assignToReference>Slot_13_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_13_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_13_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -289,7 +289,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -301,28 +301,28 @@
             <assignToReference>Slot_14_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_14_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_14_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -347,7 +347,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -359,28 +359,28 @@
             <assignToReference>Slot_15_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_15_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_15_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -405,7 +405,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -417,28 +417,28 @@
             <assignToReference>Slot_16_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_16_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_16_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -463,7 +463,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -475,28 +475,28 @@
             <assignToReference>Slot_17_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_17_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_17_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -521,7 +521,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -533,28 +533,28 @@
             <assignToReference>Slot_18_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_18_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_18_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -579,7 +579,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -591,28 +591,28 @@
             <assignToReference>Slot_19_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_19_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_19_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -637,7 +637,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -649,28 +649,28 @@
             <assignToReference>Slot_2_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_2_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_2_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -695,7 +695,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -707,28 +707,28 @@
             <assignToReference>Slot_20_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_20_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_20_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -753,7 +753,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -765,28 +765,28 @@
             <assignToReference>Slot_3_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_3_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_3_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -811,7 +811,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -823,28 +823,28 @@
             <assignToReference>Slot_4_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_4_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_4_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -869,7 +869,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -881,28 +881,28 @@
             <assignToReference>Slot_5_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_5_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_5_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -927,7 +927,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -939,28 +939,28 @@
             <assignToReference>Slot_6_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_6_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_6_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -985,7 +985,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -997,28 +997,28 @@
             <assignToReference>Slot_7_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_7_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_7_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1043,7 +1043,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1055,28 +1055,28 @@
             <assignToReference>Slot_8_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_8_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_8_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1101,7 +1101,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1113,28 +1113,28 @@
             <assignToReference>Slot_9_Plan_Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name</elementReference>
+                <elementReference>Loop_Slot_Assembly.ActionPlanTemplate.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_9_Required_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Required_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Required_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>Slot_9_Optional_Tasks</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>All_Optional_Template_Items</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Get_Goal_Optional_Action_Plan_Tasks</elementReference>
+                <elementReference>Current_Optional_Tasks</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1159,7 +1159,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1200,22 +1200,6 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Collect_Deselected_Task_Id</name>
-        <label>Collect Deselected Task Id</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Deselected_Task_Ids</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>Loop_Deselected_Action_Plan_Items.ItemId</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Deselected_Action_Plan_Items</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Collect_Goal_Action_Plan_Template_Id</name>
         <label>Collect Goal Action Plan Template Id</label>
         <locationX>0</locationX>
@@ -1235,7 +1219,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Goal_Action_Plan_Version</targetReference>
+            <targetReference>Loop_Selected_Goal_Ids</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1287,6 +1271,43 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Collect_Resolved_Version</name>
+        <label>Collect Resolved Version</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Action_Plan_Versions_To_Create</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Resolve_Action_Plan_Versions</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varResolvedVersionIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Resolve_Action_Plan_Versions.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varResolvedTemplateIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Resolve_Action_Plan_Versions.ActionPlanTemplateId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Action_Plans_Preview_Html</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Action_Plans_Preview_Html_Next</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Resolve_Action_Plan_Versions</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Collect_Selected_Goal_Id</name>
         <label>Collect Selected Goal Id</label>
         <locationX>0</locationX>
@@ -1317,6 +1338,52 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Collect_Slot_Optional_Task</name>
+        <label>Collect Slot Optional Task</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Current_Optional_Tasks</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Slot_Items</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Has_Optional_Tasks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Slot_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Collect_Slot_Required_Task</name>
+        <label>Collect Slot Required Task</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Current_Required_Tasks</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Slot_Items</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Has_Required_Tasks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Slot_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Increment_Action_Plan_Slot_Count</name>
         <label>Increment Action Plan Slot Count</label>
         <locationX>0</locationX>
@@ -1333,87 +1400,6 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Mark_Has_Optional_Tasks</name>
-        <label>Mark Has Optional Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Current_Has_Optional_Tasks</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Increment_Action_Plan_Slot_Count</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Mark_Has_Required_Tasks</name>
-        <label>Mark Has Required Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Current_Has_Required_Tasks</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Optional_Tasks_Found</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Mark_Skip_Applied</name>
-        <label>Mark Skip Applied</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Skip_Applied</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Deselected_Action_Plan_Items</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Mark_Skip_Not_Applied</name>
-        <label>Mark Skip Not Applied</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Skip_Not_Applied</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Selected_Goals</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Mark_Task_Delete_Failed</name>
-        <label>Mark Task Delete Failed</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>Task_Delete_Failed</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Mark_Template_Already_Collected</name>
         <label>Mark Template Already Collected</label>
         <locationX>0</locationX>
@@ -1427,6 +1413,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Loop_Check_Action_Plan_Template_Collected</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Mark_Version_Resolved</name>
+        <label>Mark Version Resolved</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varIsVersionResolved</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Check_Version_Resolved</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1579,6 +1581,57 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Prepare_Action_Plan_Task</name>
+        <label>Prepare Additional Action Plan Task</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Task_To_Add.Subject</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Additional_Task_Rows.Additional_Task_Subject_Consolidated</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Task_To_Add.ActivityDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Additional_Task_Rows.Additional_Task_Due_Date_Consolidated</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Task_To_Add.Priority</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Additional_Task_Rows.Additional_Task_Priority_Consolidated</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Task_To_Add.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Action_Plan_Tasks_To_Create</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Task_To_Add</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Action_Plan_Task_Template_Ids</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Additional_Task_Rows.Additional_Task_Action_Plan_Consolidated</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Additional_Task_Rows</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Prepare_Additional_Task</name>
         <label>Prepare Additional Care Plan Task</label>
         <locationX>0</locationX>
@@ -1612,27 +1665,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Task_To_Add.OwnerId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Task_Owner_Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Task_To_Add.WhoId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>Task_To_Add.WhatId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Create_Care_Plan</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>Tasks_To_Create</assignToReference>
             <operator>Add</operator>
             <value>
@@ -1644,58 +1676,56 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Queue_Action_Plan_Version</name>
-        <label>Queue Action Plan Version</label>
+        <name>Reset_Slot_Task_Collections</name>
+        <label>Reset Slot Task Collections</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <assignmentItems>
-            <assignToReference>Action_Plan_Versions_To_Create</assignToReference>
-            <operator>Add</operator>
+            <assignToReference>Current_Required_Tasks</assignToReference>
+            <operator>Assign</operator>
             <value>
-                <elementReference>Get_Goal_Action_Plan_Version</elementReference>
+                <elementReference>Empty_Item_Collection</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>Action_Plans_Preview_Html</assignToReference>
+            <assignToReference>Current_Optional_Tasks</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Action_Plans_Preview_Html_Next</elementReference>
+                <elementReference>Empty_Item_Collection</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Has_Required_Tasks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Current_Has_Optional_Tasks</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Goal_Required_Action_Plan_Tasks</targetReference>
+            <targetReference>Loop_Slot_Items</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Reset_Deselected_Task_Ids</name>
-        <label>Reset Deselected Task Ids</label>
+        <name>Reset_Version_Resolved_Flag</name>
+        <label>Reset Version Resolved Flag</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <assignmentItems>
-            <assignToReference>Deselected_Task_Ids</assignToReference>
+            <assignToReference>varIsVersionResolved</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Empty_Id_Collection</elementReference>
+                <booleanValue>false</booleanValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Deselected_Action_Plan_Items</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Set_Created_Care_Plan_Id</name>
-        <label>Set Created Care Plan Id</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>createdCarePlanId</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Create_Care_Plan.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Success</targetReference>
+            <targetReference>Loop_Check_Version_Resolved</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -1728,7 +1758,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Loop_Selected_Goal_Ids</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No Slot Available</defaultConnectorLabel>
         <rules>
@@ -2033,38 +2063,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Action_Plan_Task_Row_Matches</name>
-        <label>Action Plan Task Row Matches</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Not This Plan</defaultConnectorLabel>
-        <rules>
-            <name>Row_Matches_Action_Plan</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_Action_Plan_Task_Rows.Additional_Task_Action_Plan_Consolidated</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>Loop_Action_Plan_Versions_To_Create.ActionPlanTemplateId</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Loop_Action_Plan_Task_Rows.Additional_Task_Subject_Consolidated</leftValueReference>
-                <operator>IsBlank</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Create_Action_Plan_Task</targetReference>
-            </connector>
-            <label>Row Matches Action Plan</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Action_Plan_Template_Collected_Check</name>
         <label>Action Plan Template Collected Check</label>
         <locationX>0</locationX>
@@ -2134,16 +2132,63 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Loop_Additional_Task_Rows.Additional_Task_Subject_Consolidated</leftValueReference>
-                <operator>IsBlank</operator>
+                <leftValueReference>Additional_Task_Has_Subject</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Prepare_Additional_Task</targetReference>
             </connector>
             <label>Care Plan Level Row</label>
+        </rules>
+        <rules>
+            <name>Action_Plan_Level_Row</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Additional_Task_Rows.Additional_Task_Action_Plan_Consolidated</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Additional_Task_Has_Subject</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Prepare_Action_Plan_Task</targetReference>
+            </connector>
+            <label>Action Plan Level Row</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Care_Plan_Created</name>
+        <label>Care Plan Created</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Flow_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Failed</defaultConnectorLabel>
+        <rules>
+            <name>Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varIsSuccess</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Success</targetReference>
+            </connector>
+            <label>Created</label>
         </rules>
     </decisions>
     <decisions>
@@ -2167,31 +2212,6 @@
             </conditions>
             <connector>
                 <targetReference>Get_Case_Contact</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Case_Participant_Exists</name>
-        <label>Case Participant Exists</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Create_Case_Participant</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Participant_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Case_Participant.Id</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Student_User</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -2222,81 +2242,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Deselected_Item_Has_Task</name>
-        <label>Deselected Item Has Task</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Deselected_Action_Plan_Items</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No Task</defaultConnectorLabel>
-        <rules>
-            <name>Task_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_Deselected_Action_Plan_Items.ItemId</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Collect_Deselected_Task_Id</targetReference>
-            </connector>
-            <label>Task Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Deselected_Items_Found</name>
-        <label>Deselected Items Found</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>None Found</defaultConnectorLabel>
-        <rules>
-            <name>Items_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Deselected_Action_Plan_Items</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Skip_Deselected_Action_Plan_Items</targetReference>
-            </connector>
-            <label>Items Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Deselected_Tasks_Exist</name>
-        <label>Deselected Tasks Exist</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>None</defaultConnectorLabel>
-        <rules>
-            <name>Tasks_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Deselected_Task_Ids</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Delete_Deselected_Tasks</targetReference>
-            </connector>
-            <label>Tasks Found</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Goal_Action_Plans_Exist</name>
         <label>Goal Action Plans Exist</label>
         <locationX>0</locationX>
@@ -2316,7 +2261,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Resolved_Action_Plan_Templates</targetReference>
+                <targetReference>Get_All_Action_Plan_Versions</targetReference>
             </connector>
             <label>Found</label>
         </rules>
@@ -2397,160 +2342,103 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Optional_Items_To_Skip_Exist</name>
-        <label>Optional Items To Skip Exist</label>
+        <name>Slot_Item_Belongs</name>
+        <label>Slot Item Belongs</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
+            <targetReference>Loop_Slot_Items</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>None To Skip</defaultConnectorLabel>
+        <defaultConnectorLabel>Other Version</defaultConnectorLabel>
         <rules>
-            <name>Items_To_Skip_Found</name>
+            <name>Item_Matches_Version</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Optional_Item_Ids_To_Skip</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Reset_Deselected_Task_Ids</targetReference>
-            </connector>
-            <label>Items To Skip Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Optional_Tasks_Found</name>
-        <label>Optional Tasks Found</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Increment_Action_Plan_Slot_Count</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>None</defaultConnectorLabel>
-        <rules>
-            <name>Optional_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Goal_Optional_Action_Plan_Tasks</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Mark_Has_Optional_Tasks</targetReference>
-            </connector>
-            <label>Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Required_Tasks_Found</name>
-        <label>Required Tasks Found</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Optional_Tasks_Found</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>None</defaultConnectorLabel>
-        <rules>
-            <name>Required_Found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Get_Goal_Required_Action_Plan_Tasks</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Mark_Has_Required_Tasks</targetReference>
-            </connector>
-            <label>Found</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Selected_Goal_Matches</name>
-        <label>Selected Goal Matches Template Row</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Loop_Template_Goals_For_Selected</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Continue</defaultConnectorLabel>
-        <rules>
-            <name>Goal_Matched</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Loop_Template_Goals_For_Selected.GoalDefinitionId</leftValueReference>
+                <leftValueReference>Loop_Slot_Items.ActionPlanTemplateVersionId</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Loop_Selected_Goals.Id</elementReference>
+                    <elementReference>Loop_Slot_Assembly.Id</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_Selected_Goal_Assignment</targetReference>
+                <targetReference>Slot_Item_Is_Required</targetReference>
             </connector>
-            <label>Matched</label>
+            <label>Matches Version</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Skip_Applied_Check</name>
-        <label>Skip Applied Check</label>
+        <name>Slot_Item_Is_Required</name>
+        <label>Slot Item Is Required</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <defaultConnector>
-            <targetReference>Loop_Selected_Goals</targetReference>
+            <targetReference>Collect_Slot_Optional_Task</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Applied</defaultConnectorLabel>
+        <defaultConnectorLabel>Optional</defaultConnectorLabel>
         <rules>
-            <name>Skip_Not_Applied_Rule</name>
+            <name>Item_Required</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Optional_Item_Ids_To_Skip</leftValueReference>
-                <operator>IsEmpty</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Skip_Applied</leftValueReference>
+                <leftValueReference>Loop_Slot_Items.IsRequired</leftValueReference>
                 <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Mark_Skip_Not_Applied</targetReference>
-            </connector>
-            <label>Skip Not Applied</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Tasks_Exist</name>
-        <label>Tasks Exist</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Create_All_Tasks</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Create Tasks</defaultConnectorLabel>
-        <rules>
-            <name>No_Tasks</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Tasks_To_Create</leftValueReference>
-                <operator>IsEmpty</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_Created_Care_Plan_Id</targetReference>
+                <targetReference>Collect_Slot_Required_Task</targetReference>
             </connector>
-            <label>No Tasks</label>
+            <label>Required</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Version_Resolved_Check</name>
+        <label>Version Resolved Check</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Collect_Resolved_Version</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Resolved</defaultConnectorLabel>
+        <rules>
+            <name>Version_Already_Resolved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varIsVersionResolved</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Resolve_Action_Plan_Versions</targetReference>
+            </connector>
+            <label>Already Resolved</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Version_Template_Id_Matches</name>
+        <label>Version Template Id Matches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Check_Version_Resolved</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Different Template</defaultConnectorLabel>
+        <rules>
+            <name>Version_Id_Matched</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Check_Version_Resolved</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Loop_Resolve_Action_Plan_Versions.ActionPlanTemplateId</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Mark_Version_Resolved</targetReference>
+            </connector>
+            <label>Matched</label>
         </rules>
     </decisions>
     <description>Customized Care Plan subflow. Users select Goals, then add direct Care Plan Tasks on one consolidated screen. Each distinct Action Plan Template configured on a selected Goal (via GoalDefinition.Action_Plan_Template__c) is previewed with its Tasks and generated as its own Action Plan by Salesforce.</description>
@@ -2581,14 +2469,14 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
-        <name>Action_Plan_Name</name>
-        <dataType>String</dataType>
-        <expression>{!Care_Plan_Name} &amp; &quot; - &quot; &amp; {!Loop_Action_Plan_Versions_To_Create.ActionPlanTemplate.Name} &amp; &quot; Action Plan&quot;</expression>
-    </formulas>
-    <formulas>
         <name>Action_Plans_Preview_Html_Next</name>
         <dataType>String</dataType>
-        <expression>{!Action_Plans_Preview_Html} &amp; &quot;&lt;li&gt;&quot; &amp; {!Get_Goal_Action_Plan_Version.ActionPlanTemplate.Name} &amp; &quot;&lt;/li&gt;&quot;</expression>
+        <expression>{!Action_Plans_Preview_Html} &amp; &quot;&lt;li&gt;&quot; &amp; {!Loop_Resolve_Action_Plan_Versions.ActionPlanTemplate.Name} &amp; &quot;&lt;/li&gt;&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>Additional_Task_Has_Subject</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT(ISBLANK(TRIM({!Loop_Additional_Task_Rows.Additional_Task_Subject_Consolidated})))</expression>
     </formulas>
     <formulas>
         <name>Care_Plan_End_Date</name>
@@ -2603,7 +2491,7 @@
     <formulas>
         <name>Default_Care_Plan_Name</name>
         <dataType>String</dataType>
-        <expression>{!Get_Case_Contact.Name} &amp; &quot; - Care Plan&quot;</expression>
+        <expression>{!Get_Case_Contact.Name} &amp; &quot; - Success Plan&quot;</expression>
     </formulas>
     <formulas>
         <name>Default_End_Date</name>
@@ -2620,41 +2508,8 @@
         <dataType>Boolean</dataType>
         <expression>CONTAINS({!Kept_Optional_Item_Ids_Csv}, &quot;;&quot; &amp; {!Loop_All_Optional_Items.Id})</expression>
     </formulas>
-    <formulas>
-        <name>Task_Owner_Id</name>
-        <dataType>String</dataType>
-        <expression>IF(NOT(ISBLANK({!Get_Student_User.Id})), {!Get_Student_User.Id}, {!Get_Case.OwnerId})</expression>
-    </formulas>
     <interviewLabel>Apply Care Plan Customized {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Apply Care Plan Customized</label>
-    <loops>
-        <name>Loop_Action_Plan_Task_Rows</name>
-        <label>Loop Action Plan Task Rows</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <collectionReference>Additional_Task_Repeater_Consolidated.AllItems</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Action_Plan_Task_Row_Matches</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Loop_Action_Plan_Versions_To_Create</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
-        <name>Loop_Action_Plan_Versions_To_Create</name>
-        <label>Loop Action Plan Versions To Create</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <collectionReference>Action_Plan_Versions_To_Create</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Create_Action_Plan</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Skip_Applied_Check</targetReference>
-        </noMoreValuesConnector>
-    </loops>
     <loops>
         <name>Loop_Additional_Task_Rows</name>
         <label>Loop Additional Task Rows</label>
@@ -2666,7 +2521,7 @@
             <targetReference>Additional_Task_Row_Is_Care_Plan_Level</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Tasks_Exist</targetReference>
+            <targetReference>Apply_Customized_Care_Plan</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -2680,7 +2535,7 @@
             <targetReference>Optional_Item_Kept</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Create_Care_Plan</targetReference>
+            <targetReference>Loop_Additional_Task_Rows</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -2698,17 +2553,17 @@
         </noMoreValuesConnector>
     </loops>
     <loops>
-        <name>Loop_Deselected_Action_Plan_Items</name>
-        <label>Loop Deselected Action Plan Items</label>
+        <name>Loop_Check_Version_Resolved</name>
+        <label>Loop Check Version Resolved</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <collectionReference>Get_Deselected_Action_Plan_Items</collectionReference>
+        <collectionReference>varResolvedTemplateIds</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Deselected_Item_Has_Task</targetReference>
+            <targetReference>Version_Template_Id_Matches</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Deselected_Tasks_Exist</targetReference>
+            <targetReference>Version_Resolved_Check</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -2726,6 +2581,20 @@
         </noMoreValuesConnector>
     </loops>
     <loops>
+        <name>Loop_Resolve_Action_Plan_Versions</name>
+        <label>Loop Resolve Action Plan Versions</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_All_Action_Plan_Versions</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Reset_Version_Resolved_Flag</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_All_Action_Plan_Items</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
         <name>Loop_Selected_Goal_Ids</name>
         <label>Loop Selected Goal Ids</label>
         <locationX>0</locationX>
@@ -2740,17 +2609,31 @@
         </noMoreValuesConnector>
     </loops>
     <loops>
-        <name>Loop_Selected_Goals</name>
-        <label>Loop Selected Goals</label>
+        <name>Loop_Slot_Assembly</name>
+        <label>Loop Slot Assembly</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <collectionReference>Selected_Goal_Records</collectionReference>
+        <collectionReference>Action_Plan_Versions_To_Create</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Loop_Template_Goals_For_Selected</targetReference>
+            <targetReference>Reset_Slot_Task_Collections</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Loop_Additional_Task_Rows</targetReference>
+            <targetReference>Get_Resolved_Action_Plan_Templates</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <name>Loop_Slot_Items</name>
+        <label>Loop Slot Items</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_All_Action_Plan_Items</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Slot_Item_Belongs</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Increment_Action_Plan_Slot_Count</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -2765,20 +2648,6 @@
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Get_Goal_Definitions</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
-        <name>Loop_Template_Goals_For_Selected</name>
-        <label>Find Selected Goal Template Row</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <collectionReference>Get_Care_Plan_Goals</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Selected_Goal_Matches</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Loop_Selected_Goals</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -2800,371 +2669,81 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <recordCreates>
-        <name>Create_Action_Plan</name>
-        <label>Create Action Plan</label>
+    <recordLookups>
+        <name>Get_All_Action_Plan_Items</name>
+        <label>Get All Action Plan Template Items</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Optional_Items_To_Skip_Exist</targetReference>
+            <targetReference>Loop_Slot_Assembly</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>ActionPlanState</field>
-            <value>
-                <stringValue>Not Started</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ActionPlanTemplateVersionId</field>
-            <value>
-                <elementReference>Loop_Action_Plan_Versions_To_Create.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ActionPlanType</field>
-            <value>
-                <stringValue>Industries</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>EndDate</field>
-            <value>
-                <elementReference>Care_Plan_End_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <elementReference>Action_Plan_Name</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OwnerId</field>
-            <value>
-                <elementReference>Task_Owner_Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StartDate</field>
-            <value>
-                <elementReference>Care_Plan_Start_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StatusCode</field>
-            <value>
-                <stringValue>NotStarted</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>TargetId</field>
-            <value>
-                <elementReference>Create_Care_Plan</elementReference>
-            </value>
-        </inputAssignments>
-        <object>ActionPlan</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Action_Plan_Task</name>
-        <label>Create Action Plan Task</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Create_Action_Plan_Task_Item</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>ActivityDate</field>
-            <value>
-                <elementReference>Loop_Action_Plan_Task_Rows.Additional_Task_Due_Date_Consolidated</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>OwnerId</field>
-            <value>
-                <elementReference>Task_Owner_Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Priority</field>
-            <value>
-                <elementReference>Loop_Action_Plan_Task_Rows.Additional_Task_Priority_Consolidated</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Status</field>
-            <value>
-                <stringValue>Not Started</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Subject</field>
-            <value>
-                <elementReference>Loop_Action_Plan_Task_Rows.Additional_Task_Subject_Consolidated</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>WhatId</field>
-            <value>
-                <elementReference>Create_Care_Plan</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>WhoId</field>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Task</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Action_Plan_Task_Item</name>
-        <label>Create Action Plan Task Item</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>ActionPlanId</field>
-            <value>
-                <elementReference>Create_Action_Plan.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>IsRequired</field>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ItemId</field>
-            <value>
-                <elementReference>Create_Action_Plan_Task.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ItemState</field>
-            <value>
-                <stringValue>InProgress</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <elementReference>Loop_Action_Plan_Task_Rows.Additional_Task_Subject_Consolidated</elementReference>
-            </value>
-        </inputAssignments>
-        <object>ActionPlanItem</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_All_Tasks</name>
-        <label>Create All Retained Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Set_Created_Care_Plan_Id</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputReference>Tasks_To_Create</inputReference>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Care_Plan</name>
-        <label>Create Care Plan</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Loop_Action_Plan_Versions_To_Create</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>CarePlanTemplateId</field>
-            <value>
-                <elementReference>Care_Plan_Template</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>CaseId</field>
-            <value>
-                <elementReference>Get_Case.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>EndDate</field>
-            <value>
-                <elementReference>End_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <elementReference>Care_Plan_Name</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ParticipantId</field>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StartDate</field>
-            <value>
-                <elementReference>Start_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Status</field>
-            <value>
-                <stringValue>Proposed</stringValue>
-            </value>
-        </inputAssignments>
-        <object>CarePlan</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Case_Participant</name>
-        <label>Create Student Case Participant</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Get_Student_User</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>CaseId</field>
-            <value>
-                <elementReference>Get_Case.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ParticipantId</field>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Role</field>
-            <value>
-                <stringValue>Student</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Status</field>
-            <value>
-                <stringValue>Active</stringValue>
-            </value>
-        </inputAssignments>
-        <object>CaseParticipant</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
-        <name>Create_Selected_Goal_Assignment</name>
-        <label>Create Selected Goal Assignment</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Loop_Template_Goals_For_Selected</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <inputAssignments>
-            <field>CompletionPercentage</field>
-            <value>
-                <numberValue>0.0</numberValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>GoalAssigneeId</field>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>GoalDefinitionId</field>
-            <value>
-                <elementReference>Loop_Selected_Goals.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ParentRecordId</field>
-            <value>
-                <elementReference>Create_Care_Plan</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Priority</field>
-            <value>
-                <elementReference>Loop_Template_Goals_For_Selected.Priority</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>StartDate</field>
-            <value>
-                <elementReference>Care_Plan_Start_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Status</field>
-            <value>
-                <stringValue>Not Started</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>TargetCompletionDate</field>
-            <value>
-                <elementReference>Care_Plan_End_Date</elementReference>
-            </value>
-        </inputAssignments>
-        <object>GoalAssignment</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordDeletes>
-        <name>Delete_Deselected_Tasks</name>
-        <label>Delete Deselected Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Loop_Action_Plan_Task_Rows</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Mark_Task_Delete_Failed</targetReference>
         </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Id</field>
+            <field>ActionPlanTemplateVersionId</field>
             <operator>In</operator>
             <value>
-                <elementReference>Deselected_Task_Ids</elementReference>
+                <elementReference>varResolvedVersionIds</elementReference>
             </value>
         </filters>
-        <object>Task</object>
-    </recordDeletes>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ItemEntityType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Task</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ActionPlanTemplateItem</object>
+        <sortField>DisplayOrder</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_All_Action_Plan_Versions</name>
+        <label>Get All Action Plan Versions</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Resolve_Action_Plan_Versions</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Flow_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ActionPlanTemplateId</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>Selected_Goal_Action_Plan_Template_Ids</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Final</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ActionPlanTemplateVersion</object>
+        <sortField>Version</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <name>Get_Care_Plan_Goals</name>
         <label>Get Care Plan Template Goals</label>
@@ -3222,7 +2801,7 @@
         <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_Case_Participant</targetReference>
+            <targetReference>Care_Plan_Details</targetReference>
         </connector>
         <faultConnector>
             <isGoTo>true</isGoTo>
@@ -3238,125 +2817,6 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Case_Participant</name>
-        <label>Get Active Student Case Participant</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Case_Participant_Exists</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>CaseId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Case.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>ParticipantId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Active</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Role</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Student</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>CaseParticipant</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Deselected_Action_Plan_Items</name>
-        <label>Get Deselected Action Plan Items</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Deselected_Items_Found</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ActionPlanId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Create_Action_Plan.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsRequired</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>ActionPlanTemplateItemId</field>
-            <operator>In</operator>
-            <value>
-                <elementReference>Optional_Item_Ids_To_Skip</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>ActionPlanItem</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Goal_Action_Plan_Version</name>
-        <label>Get Goal Action Plan Version</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Queue_Action_Plan_Version</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ActionPlanTemplateId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Current_Goal_Action_Plan_Template_Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Final</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>ActionPlanTemplateVersion</object>
-        <sortField>Version</sortField>
-        <sortOrder>Desc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -3387,101 +2847,6 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Goal_Optional_Action_Plan_Tasks</name>
-        <label>Get Goal Optional Action Plan Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Required_Tasks_Found</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ActionPlanTemplateVersionId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Goal_Action_Plan_Version.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsActive</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>ItemEntityType</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Task</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>IsRequired</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>ActionPlanTemplateItem</object>
-        <sortField>DisplayOrder</sortField>
-        <sortOrder>Asc</sortOrder>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Goal_Required_Action_Plan_Tasks</name>
-        <label>Get Goal Required Action Plan Tasks</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_Goal_Optional_Action_Plan_Tasks</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ActionPlanTemplateVersionId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Goal_Action_Plan_Version.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsActive</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>ItemEntityType</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Task</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>IsRequired</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>ActionPlanTemplateItem</object>
-        <sortField>DisplayOrder</sortField>
-        <sortOrder>Asc</sortOrder>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Resolved_Action_Plan_Templates</name>
         <label>Get Resolved Action Plan Templates</label>
         <locationX>0</locationX>
@@ -3508,80 +2873,6 @@
         <sortOrder>Asc</sortOrder>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>Get_Student_User</name>
-        <label>Get Active Student User</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Care_Plan_Details</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ContactId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_Case.ContactId</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsActive</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>User</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordUpdates>
-        <name>Skip_Deselected_Action_Plan_Items</name>
-        <label>Skip Deselected Action Plan Items</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Mark_Skip_Applied</targetReference>
-        </connector>
-        <faultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Flow_Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>ActionPlanId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Create_Action_Plan.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsRequired</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>ActionPlanTemplateItemId</field>
-            <operator>In</operator>
-            <value>
-                <elementReference>Optional_Item_Ids_To_Skip</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>ItemState</field>
-            <value>
-                <stringValue>Skipped</stringValue>
-            </value>
-        </inputAssignments>
-        <object>ActionPlanItem</object>
-    </recordUpdates>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>Care_Plan_Details</name>
@@ -3694,7 +2985,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>Error_Message</name>
-            <fieldText>&lt;p&gt;The customized Care Plan operation failed.&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;The customized Care Plan operation failed.&lt;/p&gt;&lt;p&gt;{!varErrorMessage}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
@@ -8956,6 +8247,102 @@
         </connector>
     </start>
     <status>Active</status>
+    <subflows>
+        <name>Apply_Customized_Care_Plan</name>
+        <label>Apply Customized Care Plan</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Care_Plan_Created</targetReference>
+        </connector>
+        <flowName>Apply_Customized_Care_Plan</flowName>
+        <inputAssignments>
+            <name>actionPlanTasks</name>
+            <value>
+                <elementReference>Action_Plan_Tasks_To_Create</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>actionPlanTaskTemplateIds</name>
+            <value>
+                <elementReference>Action_Plan_Task_Template_Ids</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>actionPlanVersionIds</name>
+            <value>
+                <elementReference>varResolvedVersionIds</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>carePlanName</name>
+            <value>
+                <elementReference>Care_Plan_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>carePlanTasks</name>
+            <value>
+                <elementReference>Tasks_To_Create</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>carePlanTemplateId</name>
+            <value>
+                <elementReference>Care_Plan_Template</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>caseId</name>
+            <value>
+                <elementReference>Get_Case.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>endDate</name>
+            <value>
+                <elementReference>End_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>optionalItemIdsToSkip</name>
+            <value>
+                <elementReference>Optional_Item_Ids_To_Skip</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>selectedGoalIds</name>
+            <value>
+                <elementReference>Selected_Goal_Ids</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>startDate</name>
+            <value>
+                <elementReference>Start_Date</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>createdCarePlanId</assignToReference>
+            <name>createdCarePlanId</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varErrorMessage</assignToReference>
+            <name>errorMessage</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>varIsSuccess</assignToReference>
+            <name>isSuccess</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Skip_Not_Applied</assignToReference>
+            <name>skipNotApplied</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>Task_Delete_Failed</assignToReference>
+            <name>taskDeleteFailed</name>
+        </outputAssignments>
+    </subflows>
     <variables>
         <name>Action_Plan_Slot_Count</name>
         <dataType>Number</dataType>
@@ -8966,6 +8353,21 @@
         <value>
             <numberValue>0.0</numberValue>
         </value>
+    </variables>
+    <variables>
+        <name>Action_Plan_Task_Template_Ids</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Action_Plan_Tasks_To_Create</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Task</objectType>
     </variables>
     <variables>
         <name>Action_Plan_Versions_To_Create</name>
@@ -9036,11 +8438,20 @@
         </value>
     </variables>
     <variables>
-        <name>Deselected_Task_Ids</name>
-        <dataType>String</dataType>
+        <name>Current_Optional_Tasks</name>
+        <dataType>SObject</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+        <objectType>ActionPlanTemplateItem</objectType>
+    </variables>
+    <variables>
+        <name>Current_Required_Tasks</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ActionPlanTemplateItem</objectType>
     </variables>
     <variables>
         <name>Empty_Id_Collection</name>
@@ -9048,6 +8459,14 @@
         <isCollection>true</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Empty_Item_Collection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ActionPlanTemplateItem</objectType>
     </variables>
     <variables>
         <name>Goal_Definition_Ids</name>
@@ -9131,16 +8550,6 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>GoalDefinition</objectType>
-    </variables>
-    <variables>
-        <name>Skip_Applied</name>
-        <dataType>Boolean</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <booleanValue>false</booleanValue>
-        </value>
     </variables>
     <variables>
         <name>Skip_Not_Applied</name>
@@ -10237,5 +9646,46 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Task</objectType>
+    </variables>
+    <variables>
+        <name>varErrorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varIsSuccess</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varIsVersionResolved</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varResolvedTemplateIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varResolvedVersionIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>

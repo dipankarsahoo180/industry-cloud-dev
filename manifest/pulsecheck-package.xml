@@ -32,7 +32,11 @@
         <members>Apply_Care_Plan_Template</members>
         <members>Apply_Care_plan_Automatic</members>
         <members>Apply_Care_plan_Customized</members>
-        <members>Complete_Action_Plan_And_Goal</members>
+        <members>Apply_Customized_Care_Plan</members>
+        <members>Complete_Action_Plan_On_Action_Plan_Item_Complete</members>
+        <members>Complete_Goal_On_Action_Plan_Complete</members>
+        <members>Complete_Care_Plan_On_Goal_Complete</members>
+        <members>Create_Care_Plan_Records</members>
         <name>Flow</name>
     </types>
     <types>
